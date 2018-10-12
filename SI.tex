@@ -1,0 +1,414 @@
+\documentclass[amsmath,preprintnumbers,10pt,article,notitlepage]{revtex4-1}
+\usepackage{amsbsy}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{subfigure}
+\usepackage{physics}
+\usepackage{soul}
+\usepackage{color}
+\usepackage{bm}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+
+%\newcommand{\Tr}{\text{Tr}}
+\newcommand{\Ai}{\text{Ai}}
+\newcommand{\Bi}{\text{Bi}}
+\newcommand{\Real}{\text{Re}}
+\newcommand{\Imag}{\text{Im}}
+
+
+\usepackage{verbatim}
+\usepackage{natbib}
+\bibliographystyle{apsrev4-1}
+\begin{document}
+\title{Diffusion, structure and energy consumption in a model driven liquid}
+\author{Laura Tociu$^{1,3}$, Etienne Fodor$^{2}$, Suriyanarayanan Vaikuntanathan$^{1,3}$} 
+\affiliation{$^1$The James Franck Institute, The University of Chicago, Chicago, IL,USA,}
+\affiliation{$^2$ DAMTP, University of Cambridge,Cambridge,UK,}
+\affiliation{$^3$ Department of Chemistry, The University of Chicago, Chicago, IL, USA}
+
+\maketitle 
+
+\section{Setup and structure of calculations in the SI}
+
+
+The Hamiltonian for a density field interacting with a tracer can generically be written as:
+
+\begin{equation}
+H(t) = \dfrac{K_BT}{2} \int d{\bf r} \int d {\bf r}' \delta \rho ({\bf r}, t) \chi^{-1}({\bf r} - {\bf r}') \delta \rho ({\bf r}', t) + \int d{\bf r} V({\bf r} - {\bf r}_0(t))\delta \rho({\bf r}, t)
+\end{equation}
+where ${\bf r}_0(t)$ denotes the position of a tracer particle, $\delta \rho({\bf r},t ) = \rho({\bf r}, t) - \rho_0 $ and $\rho_0$ is the density of the liquid. The covariance  is $\chi({\bf r}-{\bf r}')= \langle \delta \rho({\bf r}) \delta \rho ({\bf r}') \rangle=  \rho_0 \delta({\bf r} - {\bf r}') +\rho_0^2 g({\bf r}-{\bf r}')$, and $g({\bf r}-{\bf r}')$ is the two point correlation function. 
+\\
+
+Note:  We imagine $\chi^{-1}({\bf r}-{\bf r'})$ to be scaled by the inverse of the square of the integration volume element, so as the double integral above is unitless.
+\\
+
+The equation of motion of the density field can then be written as: 
+\begin{equation}
+\frac{\partial \delta \rho({\bf r}, t)}{\partial t}= - \dfrac{1}{\gamma_G} \nabla^2 \left[ K_BT \int  d{\bf r}' \chi^{-1} ({\bf r}-{\bf r}') \delta \rho({\bf r}', t) +  V({\bf r}-{\bf r}_0(t)) \right ]+ \nabla \cdot \eta({\bf r},t)
+\label{eq:EvolutionField}
+\end{equation}
+The noise is multiplicative, obeying $\langle \eta({\bf r}, t) \cdot \eta({\bf r}', t') \rangle = 2D_G \delta({\bf r} - {\bf r}')\delta(t-t')$, and the parameters $\gamma_G$ and $D_G$ are course-grained damping and diffusion coefficients.
+
+
+Note:  In the above, if we define a timescale $t_0 = r_0^2/D_0$, we get the following units for the two parameters: $\gamma_G \propto \frac{K_BT V t_0}{L^2}$, and $D_G \propto  \frac{\rho_0^2L^2}{t_0}$.  Thus, the fluctuation dissipation theorem would yield $D_G \gamma_G \propto K_BT V \rho_0^2$.
+
+In Fourier space, Equation \ref{eq:EvolutionField} becomes:
+
+\begin{equation}
+\frac{\partial \delta \rho({\bf q},t)}{\partial t}= -\dfrac{1}{\gamma_G}\left[ K_BT |{\bf q}|^2 \chi^{-1}({\bf q}) \delta \rho({\bf q}) +  |{\bf q}|^2 V({\bf q}) e^{-i {\bf q} \cdot {\bf r}_0(t)} \right] + i{\bf q} \cdot \eta({\bf q},t)
+\label{eq:FourierEvolutionField}
+\end{equation}
+where $\langle \eta({\bf q}, s) \cdot \eta({\bf q}', s')  \rangle = 2D_G \delta({\bf q} + {\bf q}') \delta(s-s')$.
+
+Note:  If the interparticle potential were zero, Eq. \ref{eq:FourierEvolutionField} could be solved yielding a probability distribution $P(\delta \rho({\bf q})) = e^{-\tfrac{K_BT \chi^{-1}({\bf q}) \delta \rho({\bf q})^2}{D_G \gamma_G}}$, which would have the right dimensions in the exponent, as expected.
+
+The complementary equation of motion for an undriven tracer is:
+
+\begin{equation}
+\dfrac{d{\bf r}_0(t)}{d t} = -\dfrac{1}{\gamma} \int  d{\bf q} i {\bf q} V(-{\bf q})e^{i{\bf q} \cdot {\bf r}_0(t)} \delta \rho({\bf q}, t) +  \eta_0(t)
+\label{eq:EvolutionTracer}
+\end{equation}
+where $\eta_0(t)$ is white noise of zero mean and variance $2D_0$, and $2D_0 = \frac{K_BT}{\gamma}$.
+Eq.~\ref{eq:FourierEvolutionField} can be exactly solved if the tracer trajectory, ${\bf r}_0(t)$, is known. Specifically, by labeling $\chi^{-1}({\bf q}) = K({\bf q})$, the restoring force for density fluctuations, we get:
+
+\begin{equation}
+\delta\rho({\bf q},t)=
+\int\limits_{-\infty}^t e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s)}\left[-|{\bf q}|^2 \dfrac{V({\bf q})}{\gamma_G} e^{-i {\bf q}\cdot {\bf r}_0(s)}+  i{\bf q} \cdot \eta({\bf q},s)\right] ds
+\label{eq:SolutionFourierEvolution}
+\end{equation}
+
+As in the main text, we will consider two driven regimes. First, we will consider regimes in which the tracer particle is driven along long orbits with driving frequency $\omega \rightarrow 0$. The derivations presented below explicitly treat that limit. We will then consider the other limit of $\omega \rightarrow \infty$. The expressions for average force, time correlations in the $\omega \rightarrow 0$ can readily be specialized to the case of $\omega \rightarrow \infty$. 
+
+\section{Energy Balance ($\omega \rightarrow 0$)}
+
+We scale the interaction potential between particles by a parameter $h$, and write the full conservative force acting on the tracer as:
+
+\begin{equation}
+{\bf F}(t) = -\int d{\bf q} i{\bf q} h V(-{\bf q}) e^{i{\bf q} \cdot {\bf r}_0(t)} \int\limits_{-\infty}^t e^{-\frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q})(t-s)} \left( - |{\bf q}|^2 \dfrac{h V({\bf q})}{\gamma_G} e^{-i{\bf q} \cdot {\bf r}_0(s)} +  i{\bf q} \cdot \eta({\bf q}, s)\right)ds
+\label{eq:ConservativeForce}
+\end{equation}
+
+We begin by verifying the fluctuation-dissipation theorem at equilibrium. Namely we will prove that $\langle {\bf F}^2 \rangle = \langle {\bf F}^2 \rangle_0 $, where $\displaystyle {\langle {\bf F}^2 \rangle_0 = - \gamma/2 \lim_{t\to 0} \langle \eta_0(0) \cdot {\bf F}(t) \rangle}$.
+
+To order $h^2$, the force variance is:
+
+\begin{align}
+\langle {\bf F}^2 \rangle & =  h^2 \left \langle \int d{\bf q} \int  d{\bf q}' i{\bf q}  V(-{\bf q}) i{\bf q}' V({\bf q}') e^{i({\bf q} +{\bf q}') \cdot {\bf r}_0(t)} \int\limits_{-\infty}^t ds \int\limits_{-\infty}^t ds' e^{-\frac{K_BT}{\gamma_G}\left(|{\bf q}|^2 K({\bf q})(t-s)+|{\bf q}'|^2 K({\bf q}')(t-s')\right)} i{\bf q} \eta({\bf q}, s) \cdot  i{\bf q}' \eta({\bf q}', s')  \right \rangle \\
+& = h^2 \int d{\bf q} |{\bf q}|^4  |V({\bf q})|^2 2D_G \int\limits_{-\infty}^t ds e^{-2\frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q})(t-s)}  \\
+& = h^2 \int d{\bf q} |{\bf q}|^2 \frac{ |V({\bf q})|^2}{K({\bf q})} 
+\label{eq:ForceVarianceEquil}
+\end{align}
+
+Also to order $h^2$, there are two terms in $\langle {\bf F}^2 \rangle_0 = -\gamma/2  \displaystyle  \lim_{\Delta t \to 0} \langle \eta_0(t) \cdot {\bf F}(t+\Delta t) \rangle$. The first term, which we call $T_1$ is:
+
+\begin{align}
+T_1 & =  -\gamma/2   \lim_{\Delta t \to 0}  \left \langle \int d{\bf q}  i{\bf q} \cdot \eta_0(t)  hV(-{\bf q})  e^{i{\bf q} \cdot \int\limits_{-\infty}^{t+\Delta t} \eta_0(x)dx} \int\limits_{-\infty}^{t+\Delta t} e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s)} |{\bf q}|^2 \dfrac{h  V({\bf q})}{\gamma_G} e^{-i{\bf q} \cdot \int\limits_{-\infty}^{s} \eta_0(x) dx}  ds \right \rangle \\
+& =  -\frac{h^2 \gamma}{2\gamma_G}   \lim_{\Delta t \to 0} \int d{\bf q}  |{\bf q}|^2 |V({\bf q})|^2   \int\limits_{-\infty}^{t+\Delta t} e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s)} \left \langle i{\bf q} \cdot \eta_0(t) e^{i{\bf q} \cdot  \eta_0(t) \Delta t} \right \rangle \left \langle e^{i{\bf q} \cdot \int\limits_{s}^{t} \eta_0(x) dx} \right \rangle ds  \\
+& =  \frac{h^2 \gamma}{2\gamma_G}  \int d{\bf q}  |{\bf q}|^4 |V({\bf q})|^2 2D_0  \int\limits_{-\infty}^{t} e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s) - |{\bf q}|^2 D_0(t-s)} ds  \\
+& =  \frac{h^2 K_BT}{\gamma_G} \int d{\bf q} |{\bf q}|^2  \dfrac{ |V({\bf q})|^2}{ \frac{K_BT}{\gamma_G} K({\bf q}) + D_0}   \\
+\label{eq:NoiseForceT1Equil}
+\end{align}
+
+The second term, $T_2$:
+
+\begin{align}
+T_2 & =  \gamma/2   \lim_{\Delta t \to 0}  \left \langle  \int d{\bf q}  i{\bf q} \cdot \eta_0(t)   h V(-{\bf q}) e^{i{\bf q} \cdot \int\limits_{-\infty}^{t+\Delta t} \eta_0(x)dx}  i{\bf q}  \cdot  1/\gamma \int\limits_{-\infty}^{t+\Delta t} ds' (-1) \int d{\bf q}' i{\bf q'}  h V(-{ \bf q}') \right. \\
+& \left. e^{i{\bf q}' \cdot \int\limits_{-\infty}^{s'} \eta_0(x)dx} \int\limits_{-\infty}^{s'} e^{-\frac{K_BT}{\gamma_G} |{\bf q}'|^2 K({\bf q'})(t-s'')} i{\bf q}' \cdot \eta({\bf q'}, s'') ds''  \int\limits_{-\infty}^{t+\Delta t} e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s)} i{\bf q} \cdot \eta({\bf q}, s) ds\right \rangle \\
+& = -\frac{h^2}{2}   \lim_{\Delta t \to 0} \int d{\bf q}   |V({\bf q})|^2  |{\bf q}|^4 2D_G \int\limits_{-\infty}^{t+\Delta t} ds'  \left \langle  i{\bf q} \cdot \eta_0(t) e^{i{\bf q} \cdot \int\limits_{s'}^{t+\Delta t} \eta_0(x)dx} \right \rangle \int\limits_{-\infty}^{s'} e^{-2\frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q})(t-s'')} ds'' \\
+& = \frac{h^2}{2}   \lim_{\Delta t \to 0} \int d{\bf q}  |V({\bf q})|^2 |{\bf q}|^6 \dfrac{2D_0}{|{\bf q}|^2 K({\bf q})}  \int\limits_{-\infty}^{t} ds' e^{-\frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q})(t-s') - |{\bf q}|^2 D_0(t-s')} \\
+& = h^2  \int d{\bf q} |{\bf q}|^2  \dfrac{|V({\bf q})|^2 D_0}{K({\bf q})\left[\frac{K_BT}{\gamma_G} K({\bf q}) + D_0\right]}    \\
+\label{eq:NoiseForceT2Equil}
+\end{align}
+
+Adding together Eq. \ref{eq:NoiseForceT2Equil} and Eq. \ref{eq:NoiseForceT1Equil} yields exactly the force variance in Eq. \ref{eq:ForceVarianceEquil}:
+
+
+\begin{align}
+\langle {\bf F}^2 \rangle_0 & = T_1 + T_2 \\
+& = h^2 \left( \frac{K_BT}{\gamma_G} \int d{\bf q} |{\bf q}|^2  \dfrac{ |V({\bf q})|^2}{ \frac{K_BT}{\gamma_G} K({\bf q}) + D_0} + \int d{\bf q} |{\bf q}|^2  \dfrac{|V({\bf q})|^2 D_0}{K({\bf q})\left[\frac{K_BT}{\gamma_G} K({\bf q}) + D_0\right]} \right) \\
+& = h^2 \int d{\bf q} |{\bf q}|^2 \frac{ |V({\bf q})|^2}{K({\bf q})} \\
+& = \langle {\bf F}^2 \rangle
+\label{eq:VerifyingFDT}
+\end{align}
+
+
+
+Next we will check what happens when the system is driven out of equilibrium by applying a constant driving force ${\bf v}$ to the tracer. We imagine scaling the interparticle potential by $h$, as before, and further sclaing the driving force by a parameter $Pe$, such that:
+
+\begin{equation}
+\dfrac{d {\bf r}_0(t)}{dt} = \dfrac{1}{\gamma}( {\bf F}(t) + Pe {\bf v}) + \eta_0(t)
+\end{equation}
+where ${\bf F}$ is the force in Eq. \ref{eq:ConservativeForce}, and has already been scaled by the parameter $h$ in the interactions.
+
+
+In our previous work, energy balance in the system resulted in a relationship between the renormalization of the force fluctuations, $\langle {\bf F}^2 \rangle - \langle {\bf F}^2 \rangle_0$ and the rate of work, defined as $ \langle \dot{w} \rangle = -{\bf v} \cdot \langle {\bf F} \rangle$. This relationship holds as an average over all particles in the system. In the case of a tracer interacting with a fluctuating field, we expect a similar relationship to hold if we consider the rate of energy change of the entire system, tracer and bath together.
+
+The rate of energy change in the tracer is:
+
+\begin{align}
+\dfrac{d U}{d t} & = -\langle {\bf F} \cdot \dot {\bf r}_0 \rangle \\
+& = -\left( \dfrac{1}{\gamma} \left( \langle {\bf F} ^2 \rangle - \langle {\bf F} ^2 \rangle_0 \right) - \langle \dot{w} \rangle \right) 
+\end{align}
+
+
+Using similar steps as before, we get that to order $h^2$, $\langle {\bf F}^2 \rangle$ is the same as that in Eq. \ref{eq:ForceVarianceEquil}.
+
+
+The two terms in $\langle {\bf F}^2 \rangle_0 = -\gamma/2   \displaystyle \lim_{\Delta t \to 0} \langle \eta_0(t) \cdot {\bf F}(t+\Delta t) \rangle$, however, are different:
+
+\begin{align}
+T_1' & =  \gamma/2   \lim_{\Delta t \to 0}  \left \langle \int d{\bf q}  i{\bf q} \cdot \eta_0(t)  hV({- \bf q})  e^{i{\bf q} \cdot \int\limits_{-\infty}^{t+\Delta t} [ \eta_0(x) + \frac{Pe{\bf v}}{\gamma}] dx} \int\limits_{-\infty}^{t+\Delta t} e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s)} (-1) |{\bf q}|^2 \dfrac{h  V({\bf q})}{\gamma_G} e^{-i{\bf q} \cdot \int\limits_{-\infty}^{s} [ \eta_0(x) + \frac{Pe{\bf v}}{\gamma} ] dx}  ds \right \rangle \\
+& =  -\frac{h^2 \gamma}{2\gamma_G}   \lim_{\Delta t \to 0} \int d{\bf q}  |{\bf q}|^2 |V({\bf q})|^2   \int\limits_{-\infty}^{t+\Delta t} e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s)} \left \langle i{\bf q} \cdot \eta_0(t) e^{i{\bf q} \cdot  \eta_0(t) \Delta t} \right \rangle \left \langle e^{i{\bf q} \cdot \int\limits_{s}^{t} [ \eta_0(x) + \frac{Pe{\bf v}}{\gamma} ] dx} \right \rangle ds  \\
+& =   \frac{h^2 \gamma}{2\gamma_G}  \int d{\bf q}  |{\bf q}|^4 |V({\bf q})|^2 2D_0  \int\limits_{-\infty}^{t} e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s) - |{\bf q}|^2 D_0(t-s) + i{\bf q} \cdot \frac{Pe{\bf v}}{\gamma}(t-s)} ds  \\
+& = \frac{h^2 K_BT}{\gamma_G} \int d{\bf q} |{\bf q}|^4  \dfrac{ |V({\bf q})|^2}{ |{\bf q}|^2 \left[ \frac{K_BT}{\gamma_G} K({\bf q}) + D_0 \right] - i{\bf q} \cdot \frac{Pe{\bf v}}{\gamma}} \\
+& = \frac{h^2 K_BT}{\gamma_G} \int d{\bf q} |{\bf q}|^2  \dfrac{ |V({\bf q})|^2}{ \frac{K_BT}{\gamma_G} K({\bf q}) + D_0} \left( 1- \dfrac{ \frac{Pe^2 |{\bf v}|^2}{\gamma^2}}{|{\bf q}|^2 [\frac{K_BT}{\gamma_G} K({\bf q}) + D_0 ]^2 } \right) \\
+\label{eq:NoiseForceT1Driven}
+\end{align}
+
+The second term, $T_2'$:
+
+\begin{align}
+T_2' & =  \gamma/2   \lim_{\Delta t \to 0}  \left \langle \int d{\bf q}  i{\bf q} \cdot \eta_0(t)   h V(-{\bf q}) e^{i{\bf q} \cdot \int\limits_{-\infty}^{t+\Delta t}  [ \eta_0(x) + \frac{Pe{\bf v}}{\gamma}] dx}  i{\bf q}  \cdot  1/\gamma \int\limits_{-\infty}^{t+\Delta t} ds' \int d{\bf q}' i{\bf q'}  h V({ \bf q}') \right. \\
+& \left. e^{i{\bf q}' \cdot \int\limits_{-\infty}^{s'} \eta_0(x)dx} \int\limits_{-\infty}^{s'} e^{-\frac{K_BT}{\gamma_G} |{\bf q}'|^2 K({\bf q'})(t-s'')} i{\bf q}' \cdot \eta({\bf q'}, s'') ds''  \int\limits_{-\infty}^{t+\Delta t} e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s)} i{\bf q} \cdot \eta({\bf q}, s) ds\right \rangle \\
+& = -\frac{h^2}{2}   \lim_{\Delta t \to 0} \int d{\bf q}   V^2({\bf q})  |{\bf q}|^4 2D_G \int\limits_{-\infty}^{t+\Delta t} ds'  \left \langle  i{\bf q} \cdot \eta_0(t) e^{i{\bf q} \cdot \int\limits_{s'}^{t+\Delta t}  [ \eta_0(x) + \frac{Pe{\bf v}}{\gamma}] dx} \right \rangle \int\limits_{-\infty}^{s'} e^{-2\frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q})(t-s'')} ds'' \\
+& = \frac{h^2}{2}   \lim_{\Delta t \to 0} \int d{\bf q}  |V({\bf q})|^2 |{\bf q}|^6 \dfrac{2D_0}{|{\bf q}|^2 K({\bf q})}  \int\limits_{-\infty}^{t} ds' e^{-\frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q})(t-s') - |{\bf q}|^2 D_0(t-s) + i{\bf q} \cdot \frac{Pe{\bf v}}{\gamma}(t-s)} \\
+& = h^2 \int d{\bf q} |{\bf q}|^4  \dfrac{|V({\bf q})|^2 D_0}{K({\bf q})\left[ |{\bf q}|^2 \left[ \frac{K_BT}{\gamma_G} K({\bf q}) + D_0\right] - i {\bf q} \cdot \frac{Pe{\bf v}}{\gamma} \right] }    \\
+& = h^2  \int d{\bf q} |{\bf q}|^2  \dfrac{ |V({\bf q})|^2 D_0}{  K({\bf q}) \left[ \frac{K_BT}{\gamma_G} K({\bf q}) + D_0 \right ]} \left( 1 -  \dfrac{ \frac{Pe^2 |{\bf v}|^2}{\gamma^2}}{|{\bf q}|^2 [\frac{K_BT}{\gamma_G} K({\bf q}) + D_0 ]^2 } \right)    \\
+\label{eq:NoiseForceT2Driven}
+\end{align}
+
+Taken together, the above equations mean that:
+
+
+\begin{equation}
+\langle {\bf F}^2 \rangle_0 = \dfrac{h^2}{\gamma^2} \int d{\bf q} \dfrac{ |{\bf q}|^2 |V({\bf q})|^2}{K({\bf q})} \left( 1 - \dfrac{Pe^2 |{\bf v}|^2}{ |{\bf q}|^2 [\frac{K_BT}{\gamma_G} K({\bf q}) + D_0 ]^2} \right) 
+\label{eq:FSqZero}
+\end{equation}
+
+and
+
+\begin{equation}
+\langle {\bf F}^2 \rangle - \langle {\bf F}^2 \rangle_0 = \dfrac{h^2}{\gamma^2} \int d{\bf q} \dfrac{|V({\bf q})|^2}{K({\bf q})} \dfrac{Pe^2 |{\bf v}|^2}{ [\frac{K_BT}{\gamma_G} K({\bf q}) + D_0 ]^2} 
+\label{eq:FDTviolation}
+\end{equation}
+
+To calculate the rate of work we need to calculate the average conservative force:
+
+\begin{align}
+\langle {\bf F} \rangle & = - \left \langle  \int d{\bf q} i{\bf q} h V({\bf q}) e^{i{\bf q} \cdot {\bf r}_0(t)} \int\limits_{-\infty}^t e^{-\frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q})(t-s)} \left( |{\bf q}|^2 \dfrac{h V({\bf q})}{\gamma_G} e^{-i{\bf q} \cdot {\bf r}_0(s)} +  i{\bf q} \cdot \eta({\bf q}, s)\right)ds  \right \rangle \\
+& =   - \dfrac{1}{\gamma_G} \int d{\bf q} i{\bf q} |{\bf q}|^2 h |V({\bf q})|^2 \int\limits_{-\infty}^t e^{-\frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q})(t-s') - |{\bf q}|^2 D_0(t-s) + i{\bf q} \cdot  \frac{Pe{\bf v}}{\gamma}(t-s)} \\
+& - \left \langle \int d{\bf q} i{\bf q} h V({\bf q}) e^{i{\bf q} \cdot \int\limits_{-\infty}^{t} ( \eta_0(x) +  \frac{Pe{\bf v}}{\gamma} ) dx} i{\bf q} \cdot \int\limits_{-\infty}^{t} ds' \dfrac{1}{\gamma} \int d{\bf q'} i{\bf q}' h V({\bf q}') e^{i{\bf q}' \cdot \int\limits_{-\infty}^{s'} (\eta_0(x) +  \frac{Pe{\bf v}}{\gamma}) dx} \right. \\ 
+& \left. \int\limits_{-\infty}^{s'} ds''  \int\limits_{-\infty}^{t} ds e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s)}    e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s)}i{\bf q}' \cdot \eta({\bf q}', s'') i{\bf q} \cdot \eta({\bf q}, s)   \right \rangle \\
+& = - \dfrac{h^2}{\gamma_G} \int d{\bf q} |{\bf q}|^2 i{\bf q} \dfrac{|V({\bf q})|^2}{|{\bf q}|^2 \left[\frac{K_BT}{\gamma_G} K({\bf q}) + D_0 \right] - i{\bf q} \cdot  \frac{Pe{\bf v}}{\gamma}} \\
+& - \dfrac{h^2}{\gamma}\int d{\bf q} |{\bf q}|^4 i{\bf q} |V({\bf q})|^2 \left \langle \int\limits_{-\infty}^{t} ds' e^{i{\bf q}\int_s^t (\eta_0(x) +  \frac{Pe{\bf v}}{\gamma}) dx} \right \rangle 2D_G \int\limits_{-\infty}^{s'} ds''  e^{-\frac{K_BT}{\gamma_G} 2K({\bf q})(t-s'') }\\
+& = - \dfrac{h^2}{\gamma}  \int d{\bf q} |{\bf q}|^2  i{\bf q} \dfrac{|V({\bf q})|^2|}{|{\bf q}|^2 \left[\frac{K_BT}{\gamma_G} K({\bf q}) + D_0 \right] - i{\bf q} \cdot  \frac{Pe{\bf v}}{\gamma}} \left( \dfrac{\gamma}{\gamma_G} + \dfrac{1}{K({\bf q})} \right) \\
+& = - \dfrac{h^2}{\gamma D_0}  \int d{\bf q} |{\bf q}|^2  i{\bf q} \dfrac{|V({\bf q})|^2}{|{\bf q}|^2 \left[\frac{K_BT}{\gamma_G} K({\bf q}) + D_0 \right] - i{\bf q} \cdot  \frac{Pe{\bf v}}{\gamma}} \left( \dfrac{K_BT}{\gamma_G} + \dfrac{D_0}{K({\bf q})} \right) \\
+& = - \dfrac{h^2}{K_BT} \int d{\bf q} |{\bf q}|^2 i{\bf q} \dfrac{|V({\bf q})|^2 \left[\frac{K_BT}{\gamma_G} K({\bf q}) + D_0 \right]}{K({\bf q}) \left[ |{\bf q}|^2 \left( \frac{K_BT}{\gamma_G} K({\bf q}) + D_0 \right) - i{\bf q} \cdot  \frac{Pe{\bf v}}{\gamma} \right]} \\
+& =  - \dfrac{h^2}{K_BT \gamma} \int d{\bf q} \dfrac{|V({\bf q})|^2 Pe {\bf v}}{K({\bf q}) \left[ \frac{K_BT}{\gamma_G} K({\bf q}) + D_0 \right]} \\
+\end{align}
+
+The rate of work done on the system, in this case, is:
+
+\begin{equation}
+\langle \dot{w} \rangle = -\dfrac{1}{\gamma} Pe {\bf v} \cdot \langle F \rangle =  \dfrac{h^2 Pe^2}{K_BT \gamma^2} \int d{\bf q} \dfrac{|V({\bf q})|^2  |{\bf v}|^2}{K({\bf q}) \left[ \frac{K_BT}{\gamma_G} K({\bf q}) + D_0 \right]}
+\label{eq:RateOfWork}
+\end{equation}
+
+All in all, the change in energy of the tracer becomes:
+
+\begin{align}
+\dfrac{dU}{dt} & = -\left( \dfrac{1}{\gamma} \left( \langle {\bf F} ^2 \rangle - \langle {\bf F} ^2 \rangle_0 \right) - \langle \dot{w} \rangle \right) \\
+& = -\dfrac{h^2Pe^2 |\bf v|^2}{\gamma^2 K_BT} \int d{\bf q} \left( \dfrac{K_BT}{\gamma} \dfrac{|V({\bf q})|^2}{K({\bf q}) \left[\frac{K_BT}{\gamma_G} K({\bf q}) + D_0 \right]^2} - \dfrac{|V({\bf q})|^2}{K({\bf q}) \left[\frac{K_BT}{\gamma_G} K({\bf q}) + D_0 \right]}  \right) \\
+& =  \dfrac{h^2 Pe^2 |\bf v|^2}{\gamma^2 \gamma_G} \int d{\bf q} \dfrac{|V({\bf q})|^2}{\left[\frac{K_BT}{\gamma_G} K({\bf q}) + D_0 \right]^2}  
+\label{eq:dutracer}
+\end{align}
+
+
+\begin{align}
+\left \langle \dfrac{dU_{\mbox{bath}}}{dt}  \right \rangle & = \left \langle \int d {\bf q} |{\bf q}|^2 h V(-{\bf q}) e^{i{\bf q} \cdot {\bf r}_0(t)} \delta \dot{\rho}({\bf q}) \right \rangle \\
+& = - \left \langle \int d {\bf q} h V(-{\bf q}) e^{i{\bf q} \cdot {\bf r}_0(t)} \left( \dfrac{1}{\gamma_G}\left[ K_BT |{\bf q}|^2 K({\bf q}) \delta \rho({\bf q}) +  |{\bf q}|^2 h V({\bf q}) e^{-i {\bf q} \cdot {\bf r}_0(t)} \right] + i{\bf q} \cdot \eta({\bf q},t) \right)  \right \rangle
+\end{align}
+
+We get a total of two terms, which doing similar manipulations as before, to order $h^2$ end up being:
+
+\begin{align}
+U_1 &  = - \left \langle \int d {\bf q} h V(-{\bf q}) e^{i{\bf q} \cdot {\bf r}_0(t)} \dfrac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q}) \delta \rho({\bf q})   \right \rangle \\
+& =  - \left \langle \int d {\bf q} h V(-{\bf q}) e^{i{\bf q} \cdot {\bf r}_0(t)} \dfrac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q} )    \int\limits_{-\infty}^t e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s)}\left[-|{\bf q}|^2 \dfrac{h V({\bf q})}{\gamma_G} e^{-i {\bf q}\cdot {\bf r}_0(s)}+  i{\bf q} \cdot \eta({\bf q},s)\right] ds   \right \rangle  \\
+& =  \int d {\bf q} h V(-{\bf q})  \dfrac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q} )    \int\limits_{-\infty}^t e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s)} |{\bf q}|^2 \dfrac{h V({\bf q})}{\gamma_G}  \left \langle  e^{i{\bf q} \cdot \int\limits_{s}^t ( \eta_0(x) + \frac{Pe{\bf v} }{\gamma}) dx}   \right \rangle ds   - \\
+& \left \langle \int d {\bf q} h V(-{\bf q}) e^{i{\bf q} \cdot {\bf r}_0(t)} \dfrac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q} )    \int\limits_{-\infty}^t e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s)} i{\bf q} \cdot \eta({\bf q},s) ds   \right \rangle \\
+& = \frac{h^2}{\gamma_G} \int d{\bf q} |{\bf q}|^2  \dfrac{ |V({\bf q})|^2}{ \frac{K_BT}{\gamma_G} K({\bf q}) + D_0} \left( 1- \dfrac{ \frac{Pe^2 |{\bf v}|^2}{\gamma^2}}{|{\bf q}|^2 [\frac{K_BT}{\gamma_G} K({\bf q}) + D_0 ]^2 }  \right) \left( \dfrac{K_B T}{\gamma_G}K({\bf q}) + D_0 \right) \\
+& = \frac{h^2}{\gamma_G} \int d{\bf q} |{\bf q}|^2   |V({\bf q})|^2\left( 1- \dfrac{ \frac{Pe^2 |{\bf v}|^2}{\gamma^2}}{|{\bf q}|^2 [\frac{K_BT}{\gamma_G} K({\bf q}) + D_0 ]^2 }  \right)
+\end{align}
+
+The second term is very simply:
+
+\begin{align}
+U_2 &  = -\frac{h^2}{\gamma_G} \int d{\bf q} |{\bf q}|^2   |V({\bf q})|^2 
+\end{align}
+
+
+Together, the rate of change of the energy of the bath becomes:
+
+\begin{align}
+\left \langle \dfrac{dU_{\mbox{bath}}}{dt}  \right \rangle & = U_1 + U_2 \\
+& = - \frac{h^2 Pe^2 |{\bf v}|^2}{ \gamma^2 \gamma_G} \int d{\bf q}  \dfrac{|V({\bf q})|^2}{ [\frac{K_BT}{\gamma_G} K({\bf q}) + D_0 ]^2 } 
+\label{eq:dubath}
+\end{align}
+
+Since Eq. \ref{eq:dubath} is the negative of Eq. \ref{eq:dutracer}, this completes the proof that the energy of the system remains constant.
+
+Since $K({\bf q}) = \rho^{-2} $ to zeroth order in $h$, we obtain that $\dfrac{KT}{\gamma_G} K({\bf q}) \equiv D_0$, and thus Eq. \ref{eq:FDTviolation} and Eq. \ref{eq:RateOfWork} show that $\frac{2}{\gamma}(\langle {\bf F}^2 \rangle - \langle {\bf F}^2 \rangle_0) = \langle \dot{w} \rangle$.
+
+\section{Work Renormalizes Diffusion Coefficient ($\omega \rightarrow 0$) }
+
+We will now calculate the correction to the equilibrium diffusion coefficient of the driven tracer. 
+In overdamped Langevin dynamics, the expression for diffusion in terms of force-force and noise-force correlations is: 
+\begin{equation}
+D = D_0 + \frac{1}{d} \int_0^\infty  \left[\left \langle \frac{({\bf F}(0) - \langle {\bf F} \rangle) \cdot ({\bf F}(t)-\langle {\bf F} \rangle)}{\gamma^2}\right \rangle  + \left \langle \frac{{\bm \eta}(0) \cdot {\bf F}(t)}{\gamma} \right \rangle \right]{d}t 
+\label{eq:diffusion}
+\end{equation}
+
+However, the terms involving the average conservative force lead to terms of order $h^4$, so we can ignore them.
+
+To proceed with the calculation of the nonequilibrium diffusion coefficient, we will first evaluate the first integral:
+
+
+\begin{align}
+\int_0^\infty  \left \langle \dfrac{ {\bf F}(0) \cdot {\bf F}(t)}{\gamma^2} \right \rangle dt  & = \dfrac{h^2}{\gamma^2}  \int_0^\infty dt \left \langle \int d{\bf q} \int  d{\bf q}' i{\bf q}  V(-{\bf q}) i{\bf q}' V({-\bf q}') e^{i{\bf q} \cdot {\bf r}_0(0)  + i {\bf q}' \cdot {\bf r}_0(t)} \right . \\ & \left . \int\limits_{-\infty}^0 ds \int\limits_{-\infty}^t ds' e^{-\frac{K_BT}{\gamma_G}\left(|{\bf q}|^2 K({\bf q})(-s)+|{\bf q}'|^2 K({\bf q}')(t-s')\right)} i{\bf q} \eta({\bf q}, s) \cdot  i{\bf q}' \eta({\bf q}', s')  \right \rangle \\
+& = \dfrac{h^2}{\gamma^2}  \int_0^\infty dt \int d{\bf q} |{\bf q}|^4  |V({\bf q})|^2 2D_G e^{-\frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q})t} e^{-|{\bf q}|^2 D_0 t - i{\bf q} \cdot \frac{Pe {\bf v}}{\gamma} t} \int\limits_{-\infty}^0 e^{2\frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q})s}ds \\
+& = \dfrac{h^2}{\gamma^2}  \int d{\bf q}  \dfrac{ |{\bf q}|^2 |V({\bf q})|^2 } {K({\bf q}) \left( \frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q}) + |{\bf q}|^2D_0 + i{\bf q} \cdot \frac{Pe {\bf v}}{\gamma} \right)}   \\
+& = \dfrac{h^2}{\gamma^2}  \int d{\bf q} \dfrac{ |{\bf q}|^2 |V({\bf q})|^2 \left ( \frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q}) + |{\bf q}|^2D_0 \right )} { K({\bf q}) \left( ( \frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q}) +  |{\bf q}|^2 D_0 )^2 + |{\bf q}|^2 \frac{Pe^2 |v|^2}{\gamma^2} \right)} \\
+& =  \dfrac{h^2}{\gamma^2}  \int d{\bf q} \dfrac{ |V({\bf q})|^2 } { K({\bf q}) ( \frac{K_BT}{\gamma_G}  K({\bf q}) +  D_0 )} \left( 1- \dfrac{|{\bf q}|^2 \frac{Pe^2 |v|^2}{\gamma^2}}{\left(  \frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q}) +  |{\bf q}|^2 D_0 \right)^2} \right)
+\end{align}
+
+The second term in Eq. \ref{eq:diffusion} has, in turn, two terms: 
+
+
+\begin{align}
+T_1'' & =  - \dfrac{1}{\gamma} \int_0^{\infty} dt \left \langle \int d{\bf q}  i{\bf q} \cdot \eta_0(0)  hV({- \bf q})  e^{i{\bf q} \cdot \int\limits_{-\infty}^{t} [ \eta_0(x) + \frac{Pe{\bf v}}{\gamma}] dx} \int\limits_{-\infty}^{t} e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s)} (-1) |{\bf q}|^2 \dfrac{h  V({\bf q})}{\gamma_G} e^{-i{\bf q} \cdot \int\limits_{-\infty}^{s} [ \eta_0(x) + \frac{Pe{\bf v}}{\gamma} ] dx}  ds \right \rangle \\
+& =   \frac{h^2}{\gamma_G \gamma}  \int_0^{\infty}  dt  \int d{\bf q}  |{\bf q}|^2 |V({\bf q})|^2   \int\limits_{-\infty}^{0} e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s)} \left \langle i{\bf q} \cdot \eta_0(0) e^{i{\bf q} \cdot  \eta_0(0)} \right \rangle \left \langle e^{i{\bf q} \cdot \int\limits_{s}^{t} [ \eta_0(x) + \frac{Pe{\bf v}}{\gamma} ] dx} \right \rangle ds  \\
+& =  -\frac{h^2}{\gamma_G \gamma}   \int_0^{\infty}  dt \int d{\bf q}  |{\bf q}|^4 |V({\bf q})|^2 2D_0  \int\limits_{-\infty}^{0} e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s) - |{\bf q}|^2 D_0(t-s) + i{\bf q} \cdot \frac{Pe{\bf v}}{\gamma}(t-s)} ds  \\
+& = - 2\frac{h^2 D_0}{\gamma_G \gamma} \int d{\bf q} \dfrac{ |{\bf q}|^4 |V({\bf q})|^2}{ \left(|{\bf q}|^2 \left[ \frac{K_BT}{\gamma_G} K({\bf q}) + D_0 \right] - i{\bf q} \cdot \frac{Pe{\bf v}}{\gamma} \right)^2} \\
+\label{eq:NoiseForceDiffusion1}
+\end{align}
+
+Labeling $|{\bf q}|^2 \left[ \frac{K_BT}{\gamma_G} K({\bf q}) + D_0 \right] = A$, we can rewrite the above as:
+
+\begin{align}
+T_1'' & = - 2\frac{h^2 D_0}{\gamma_G \gamma} \int d{\bf q} \dfrac{ |{\bf q}|^4 |V({\bf q})|^2}{ (A - i{\bf q} \cdot \frac{Pe{\bf v}}{\gamma} )^2} \\
+& = - 2 \frac{h^2 D_0}{\gamma_G \gamma} \int d{\bf q}  |{\bf q}|^4 |V({\bf q})|^2 \dfrac{A^2 - |{\bf q}|^2 \frac{Pe^2 |{\bf v}|^2}{\gamma^2}}{\left( A^2 + |{\bf q}|^2 \frac{Pe^2 |{\bf v}|^2}{\gamma^2} \right)^2} \\
+& = -2 \frac{h^2 D_0}{\gamma_G \gamma} \int d{\bf q}  \dfrac{ |{\bf q}|^4 |V({\bf q})|^2}{A^2} \left( 1 - 3 |{\bf q}|^2 \frac{Pe^2 |{\bf v}|^2}{\gamma^2 A^2}  \right) \\
+\label{eq:NoiseForceDiffusion1cont}
+\end{align}
+
+
+The second term, $T_2''$, we compute next, and we make the same substitution (i.e. $|{\bf q}|^2 \left[ \frac{K_BT}{\gamma_G} K({\bf q}) + D_0 \right] = A$) in last line:
+
+\begin{align}
+T_2'' & =  - \dfrac{1}{\gamma}  \int_0^{\infty} dt \left \langle \int d{\bf q}  i{\bf q} \cdot \eta_0(0)   h V(-{\bf q}) e^{i{\bf q} \cdot \int\limits_{-\infty}^{t}  [ \eta_0(x) + \frac{Pe{\bf v}}{\gamma}] dx}  i{\bf q}  \cdot  1/\gamma \int\limits_{-\infty}^{t} ds' \int d{\bf q}' i{\bf q'}  h V({ \bf q}') \right. \\
+& \left. e^{i{\bf q}' \cdot \int\limits_{-\infty}^{s'} \eta_0(x)dx} \int\limits_{-\infty}^{s'} e^{-\frac{K_BT}{\gamma_G} |{\bf q}'|^2 K({\bf q'})(t-s'')} i{\bf q}' \cdot \eta({\bf q'}, s'') ds''  \int\limits_{-\infty}^{t} e^{-\frac{K_BT}{\gamma_G}|{\bf q}|^2 K({\bf q})(t-s)} i{\bf q} \cdot \eta({\bf q}, s) ds\right \rangle \\
+& = \frac{h^2}{\gamma^2}  \int_0^{\infty} dt  \int d{\bf q}   V^2({\bf q})  |{\bf q}|^4 2D_G \int\limits_{-\infty}^{t} ds'  \left \langle  i{\bf q} \cdot \eta_0(0) e^{i{\bf q} \cdot \int\limits_{s'}^{t}  [ \eta_0(x) + \frac{Pe{\bf v}}{\gamma}] dx} \right \rangle \int\limits_{-\infty}^{s'} e^{-2\frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q})(t-s'')} ds'' \\
+& = -\frac{h^2}{\gamma^2}  \int_0^{\infty} dt  \int d{\bf q}  |V({\bf q})|^2 |{\bf q}|^6 \dfrac{2D_0}{|{\bf q}|^2 K({\bf q})}  \int\limits_{-\infty}^{0} ds' e^{-\frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q})(t-s') - |{\bf q}|^2 D_0(t-s) + i{\bf q} \cdot \frac{Pe{\bf v}}{\gamma}(t-s)} \\
+& = -2 \dfrac{h^2 D_0}{\gamma^2} \int d{\bf q} |{\bf q}|^4  \dfrac{|V({\bf q})|^2}{K({\bf q})\left[ |{\bf q}|^2 \left[ \frac{K_BT}{\gamma_G} K({\bf q}) + D_0\right] - i {\bf q} \cdot \frac{Pe{\bf v} }{\gamma} \right]^2 } \\
+& = -2 \frac{h^2 D_0}{\gamma^2} \int d{\bf q}  \dfrac{|{\bf q}|^4 |V({\bf q})|^2}{K({\bf q})} \dfrac{A^2 - |{\bf q}|^2 \frac{Pe^2 |{\bf v}|^2}{\gamma^2}}{\left( A^2 + |{\bf q}|^2 \frac{Pe^2 |{\bf v}|^2}{\gamma^2} \right)^2} \\
+& = -2 \frac{h^2 D_0}{\gamma^2} \int d{\bf q}  \dfrac{ |{\bf q}|^4 |V({\bf q})|^2}{K({\bf q}) A^2} \left( 1 - 3 |{\bf q}|^2 \frac{Pe^2 |{\bf v}|^2}{\gamma^2 A^2}  \right) \\
+\label{eq:NoiseForceDiffusion2}
+\end{align}
+
+Adding together $T_1''$ and $T_2''$, we obtain:
+
+
+\begin{equation}
+\int_0^\infty  \left \langle \dfrac{ {\bf \eta_0}(0) \cdot {\bf F}(t)}{\gamma} \right \rangle dt = - 2\dfrac{h^2}{\gamma^2}  \int d{\bf q} \dfrac{ |V({\bf q})|^2 } { K({\bf q}) ( \frac{K_BT}{\gamma_G}  K({\bf q}) +  D_0 )} \left( 1- 3 \dfrac{|{\bf q}|^2 \frac{Pe^2 |v|^2}{\gamma^2}}{\left(  \frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q}) +  |{\bf q}|^2 D_0 \right)^2} \right)
+\end{equation}
+
+
+Thus, the full formula for the diffusion coefficient becomes:
+
+\begin{equation}
+D = D_0 - \dfrac{h^2}{\gamma^2}  \int d{\bf q} \dfrac{ |V({\bf q})|^2 } { K({\bf q}) ( \frac{K_BT}{\gamma_G}  K({\bf q}) +  D_0 )} + 5 \dfrac{h^2}{\gamma^2}  \int d{\bf q} \dfrac{ |V({\bf q})|^2 } { K({\bf q}) ( \frac{K_BT}{\gamma_G}  K({\bf q}) +  D_0 )}  \dfrac{|{\bf q}|^2 \frac{Pe^2 |v|^2}{\gamma^2}}{\left(  \frac{K_BT}{\gamma_G} |{\bf q}|^2 K({\bf q}) +  |{\bf q}|^2 D_0 \right)^2} 
+\end{equation}
+
+
+\section{Computations in the limit ($\omega \rightarrow \infty$) }
+The effects of the driving force show up in the above sections through integrals of the form 
+\begin{equation}
+I_1(t)= \int_{-\infty}^{t} e^{-G(q) (t-s)} e^{- i {\bf q} \int_s^t {Pe {\bf v}(s') ds'}} ds 
+\label{eq:centralIntegral}
+\end{equation}
+where ${\bf v}(s) =\cos(\omega s) \hat {\bf e}_x + \sin(\omega s) \hat{\bf e}_y$. In the perturbation theory for the average force exerted by the medium on the tracer particle, $G(q) \equiv (K(q) + D_0)q^2 $. Similar expressions for $G(q)$ can be obtained for the other calculations. 
+
+When $\omega\rightarrow 0$, $\int_s^t Pe{\bf v}(s) ds = Pe \hat {\bf e}_x (t-s)$ and we recover the expressions obtained in the previous section. 
+In the limit $\omega\gg G(q)$ the integral $I_1$ can be evaluated as (at $t=0$)
+\begin{equation}
+I_1(0)= \frac{1}{G(q)} + i\left( \frac{q_y Pe}{\omega G(q)} - \frac{q_x Pe}{\omega^2}\right)- \frac{ q_x^2 Pe^2 }{ 4 G(q) \omega^2} -\frac{5 q_y^2 Pe^2}{4 G(q)\omega^2}
+\label{eq:centralIntegral2}
+\end{equation}
+
+As is clear from the perturbative expansions of the force and correlation functions, the imaginary part of Eq.~\ref{eq:centralIntegral2} contributes to the forces while the real part contributes to the correlation functions. Hence, to leading order, the forces in the limit $\omega \rightarrow \infty$ scale like $Pe/\omega$. Hence the total work performed in a cycle scales as $Pe^2/\omega^2$. Similarly, the renormalization of the diffusion constant scales like $Pe^2/\omega^2$. 
+
+
+% ....................XXXXXXXX...........................................
+
+
+
+% In order to determine how the $Pe^2$ scaling affects the isotropic pair correlation function, we need to express $g_3({\bf r}, {\bf r}')$ in terms of $g({\bf r})$ and $g({\bf r}')$. To do so we use the observation in Fig. 3 of the main text, namely that the renormalization of the pair correlation function, which we call $\delta(r) = g(r) - g_{eq}(r)$, at contact (ie around $\sigma$) seems to be well approximated as a square function of a height that scales like $Pe^2$ and a width $2 \Delta \sigma$ that is on the order of 1. Considering $\Delta \sigma$ to be small, we can approximate integrals of isotropic functions $f({\bf r})$ as (See Fig. \ref{fig:GrAsSquareFunction})  : 
+% \begin{align}
+% \langle f \rangle & = \int d{\bf r} f({\bf r}) \rho g({\bf r}) \equiv \rho \int_0^{\sigma_{-}} f({\bf r}) \rho g({\bf r}) +  \rho \int_{\sigma_{+}}^{\infty} f({\bf r}) \rho g({\bf r}) \\
+% &= \langle f \rangle_{eq} + 2 \rho \Delta \sigma 2\pi \sigma f(\sigma) \delta(\sigma)
+% \end{align}
+
+% Hence, we can make the following approximations:
+
+% \begin{equation}
+% \langle {\bf F}^2 \rangle_0 = \langle {\bf F}^2 \rangle_0 ({\mbox{equil}}) + 2\Delta \sigma 2\pi \sigma \rho K_B T \grad^2 u(\sigma) \delta(\sigma)
+% \end{equation}
+
+% and
+
+% \begin{equation}
+% \langle {\bf F}^2 \rangle = \langle {\bf F}^2 \rangle ({\mbox{equil}}) + 2 \Delta \sigma 2\pi \sigma \rho (\grad u(\sigma))^2 \delta(\sigma)  + A
+% \end{equation}
+% where $A = \rho^2 \int  \int  \grad u({\bf r}) \cdot  \grad u({\bf r}')  g_3({\bf r}, {\bf r}') d{\bf r} d{\bf r}' - \rho^2 \int  \int  \grad u({\bf r}) \cdot  \grad u({\bf r}')  g_3({\bf r}, {\bf r}') d{\bf r} d{\bf r}' ({\mbox{equil}})$.
+
+
+% Note:  Here we have to explain the assumptions (hard sphere approximation etc)
+
+% We can separate $A$ into three parts:
+
+% \begin{align}
+% A  +  \rho^2 \int  \int  \grad u({\bf r}) \cdot  \grad u({\bf r}')  g_3({\bf r}, {\bf r}') d{\bf r} d{\bf r}' ({\mbox{equil}})& =  \rho^2 \int_0^{\sigma_{-}}  \int_0^{\sigma_{-}}  \grad u({\bf r}) \cdot  \grad u({\bf r}')  g_3({\bf r}, {\bf r}') d{\bf r} d{\bf r}' + \\
+% & 2 \rho^2 \int_0^{\sigma_{-}}  \int_{\sigma_{+}}^{\infty}   \grad u({\bf r}) \cdot  \grad u({\bf r}')  g_3({\bf r}, {\bf r}') d{\bf r} d{\bf r}' + \\
+% & \rho^2 \int_{\sigma_{+}}^{\infty} \int_{\sigma_{+}}^{\infty} \grad u({\bf r}) \cdot  \grad u({\bf r}')  g_3({\bf r}, {\bf r}') d{\bf r} d{\bf r}'
+% \end{align}
+
+% The first term is zero for any values of ${\bf r}$ and ${\bf r}'$ that are not exactly $\sigma_{-} - \Delta \sigma$ (basically the integration unit distance preceding $\sigma_{-}$). When both of these distance are exactly that, it means two particles are exactly at a distance $\sigma$, leaving a probability of 2/3 that the center of the third particle, which is also restrained to be on a circle of radius $\equiv \sigma$ around the first particle, does not overlap with the second particle.  The probability of finding such a configuration is therefore $g(\sigma)^2 * 2/3$
+
+% The second term fixes two particles at a distance $ r' >$ $\sigma$, and computes the probability that the third particle is at a distance $\sigma$ from one of the two and does not intersect the other one. This probability is $1-2arccos(\sigma/2r')/2\pi$. However, since we are assuming the simple shape of the pair correlation function in Fig. \ref{fig:GrAsSquareFunction}, the relevant probability will again be $g(\sigma)^2 * 2/3$. 
+
+% Lastly, the third term can be approximated as consisting of independent non-interacting particles, yielding simply $g(\sigma)^2$.
+
+% All in all, we get that:
+
+% \begin{align}
+%  A = \rho^2 f (\sigma)^2 \delta(\sigma)^2 f(\sigma)^2 (2\pi \sigma)^2 (\Delta \sigma /2)^2
+% \end{align}
+
+% These results show us that $\delta(\sigma)$ should scale like $Pe^2$.
+
+% (To be filled in later:  more details  +  add figure  +  quantitative analysis of how well this approximation holds)
+
+\pagebreak
+
+\section*{References}
+
+\begin{thebibliography}{1}
+
+\bibitem{Kruger2017}
+Kruger M, Dean DS (2017) A gaussian theory for fluctuations in simple liquids.
+\newblock {\em The Journal of Chemical Physics} 146(13):134507.
+
+\end{thebibliography}
+
+\end{document}
