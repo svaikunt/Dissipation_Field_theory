@@ -272,19 +272,14 @@ In practice, it reflects how density correlations adapt to the presence of noneq
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{fig1.pdf}
+	\includegraphics[width=\linewidth]{fig1a.pdf}
+	\vskip.3cm
+	\includegraphics[width=\linewidth]{fig1b.pdf}
 	\caption{\label{fig:fig1}
-		Parametric plot of the rate of work $\dot w/T$ and of the statistics of bath-tracer forces $\sum_{i\in\Omega}\big[\langle{\bf F}_i^2\rangle + T\langle\nabla_i\cdot{\bf F}_i\rangle\big]/\gamma T$ for a dilute fraction of driven particles ($10\%$). The solid line refers to the approximate relation~\eqref{eq:approx}. The satisfying agreement with numerical data indicates that dissipation can be estimated by only measuring bath-tracer forces.
-		Simulation details in Appendix~\ref{app:simu}. Parameters: $\tau/\tau_{\rm r}=20$ (black), $30$ (brown), $40$ (red), $50$ (orange); ${\rm Pe}=6$ ($\hexagon$), $12$ ($\boxempty$), $18$ ({\large$\vartriangle$}), $24$ ({$\Circle$}), $30$ (${\Diamond}$), $36$ ($\varhexagon$).
+		Parametric plot of the rate of work $\dot w/T$ and of the statistics of bath-tracer forces $\sum_{i\in\Omega}\big[\langle{\bf F}_i^2\rangle + T\langle\nabla_i\cdot{\bf F}_i\rangle\big]/\gamma T$ for a dilute fraction of driven particles ($10\%$). The solid line with slope 2 refers to the approximate relation~\eqref{eq:approx}. The satisfying agreement with numerical data indicates that dissipation can be estimated by only measuring bath-tracer forces.
+		Simulation details in Appendix~\ref{app:simu}. Parameters: ${\rm Pe}=12$ ($\hexagon$), $18$ ($\boxempty$), $24$ ({\large$\vartriangle$}), $30$ ({$\Circle$}), $36$ (${\Diamond}$); (a)~$\tau/\tau_{\rm r}=20$ (black), $30$ (brown), $40$ (red), $50$ (orange); (b)~$\tau/\tau_{\rm r}=2$ (black), $3$ (brown), $4$ (red), $5$ (orange); .
 	}
 \end{figure}
-
-
-However, the power balance~\eqref{eq:balance} is not straightforward to test, either numerically or experimentally, due to the three-body correlations. In equilibrium, where tracer and bath particles are indistinguishable, we get $g_{3a}=g_{3b}$. Assuming that this remains approximately valid in the driven case for a dilute fraction of tracers, the rate of work can simply be written in terms of the force exerted on a tracer ${\bf F}_i =- \sum_j\nabla_iv({\bf r}_i-{\bf r}_j)$ as
-\begin{equation}\label{eq:approx}
-	\gamma\dot w \simeq 2\sum_{i\in\Omega} \big[ \big\langle{\bf F}_i^2\big\rangle + T \big\langle\nabla_i\cdot{\bf F}_i\big\rangle \big] .
-\end{equation}
-To probe the validity of this result, we simulate the dynamics~\eqref{eq:dyn} with a fraction $f=0.1$ of particles being subjected to the driving force. We performed simulations with both (a) the deterministic periodic drive~\eqref{eq:theta} and (b) the active noise drive~\eqref{eq:theta_ac}. Interactions are set by the WCA potential $v({\bf r})=4v_0\big[(\sigma/|{\bf r}|)^{12}-(\sigma/|{\bf r}|)^6\big]\Theta(2^{1/6}\sigma-|{\bf r}|)$~\cite{WCA1971}. Our measurements in Fig.~\ref{fig:fig1} show that~\eqref{eq:approx} is indeed a good approximation at small $\rm Pe$ and small $\tau$, namely when the drive only weakly perturbs the liquid. Besides, up to ${\rm Pe}=36$ and $\tau/\tau_{\rm r}=50$, the relative deviation is at most of about $10\%$. At variance with previous approaches~\cite{Harada2005, Lander2012, Battle604}, which rely on prospecting the whole system, our results demonstrate that dissipation can actually be evaluated with only a small error by considering solely forces acting on tracer: the contribution of forces on other particles is negligible for a dilute fraction of driven tracers.
 
 
 \begin{figure*}
@@ -293,9 +288,9 @@ To probe the validity of this result, we simulate the dynamics~\eqref{eq:dyn} wi
 	\vskip.5cm
 	\includegraphics[width=\linewidth]{fig2b.pdf}
 	\vskip.5cm
-	\includegraphics[width=\linewidth]{fig2c.pdf}
+	\includegraphics[width=\linewidth]{fig2_ac_offset_tau2.pdf}
 	\vskip.5cm
-	\includegraphics[width=\linewidth]{fig2d.pdf}
+	\includegraphics[width=\linewidth]{fig2_ac_offset_tau5.pdf}
 	\caption{\label{fig:fig2}
 		(Left) Bath-tracer density correlation $g$ as a function of interparticle distance $r/\sigma$. The blue solid line corresponds to the equilibrium correlation function $g_{\rm eq}$ for ${\rm Pe}=0$.
 		(Middle) Deviation from equilibrium correlations ${\cal I} = \big[(\nabla v)^2-T\nabla^2v\big](g - g_{\rm eq})$ scaled by ${\rm Pe}^2$ as a function of $r/\sigma$. The data almost collapse into a master curve for a given $\tau/\tau_{\rm r}$.
@@ -303,6 +298,24 @@ To probe the validity of this result, we simulate the dynamics~\eqref{eq:dyn} wi
 		Simulation details in Appendix~\ref{app:simu}.
 	}
 \end{figure*}
+
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=\linewidth]{fig2_ac_all_offset_tau2.pdf}
+	\vskip.5cm
+	\includegraphics[width=\linewidth]{fig2_ac_all_offset_tau5.pdf}
+	\caption{\label{fig:fig2_ac}
+		Simulation details in Appendix~\ref{app:simu}.
+	}
+\end{figure*}
+
+
+However, the power balance~\eqref{eq:balance} is not straightforward to test, either numerically or experimentally, due to the three-body correlations. In equilibrium, where tracer and bath particles are indistinguishable, we get $g_{3a}=g_{3b}$. Assuming that this remains approximately valid in the driven case for a dilute fraction of tracers, the rate of work can simply be written in terms of the force exerted on a tracer ${\bf F}_i =- \sum_j\nabla_iv({\bf r}_i-{\bf r}_j)$ as
+\begin{equation}\label{eq:approx}
+	\gamma\dot w \simeq 2\sum_{i\in\Omega} \big[ \big\langle{\bf F}_i^2\big\rangle + T \big\langle\nabla_i\cdot{\bf F}_i\big\rangle \big] .
+\end{equation}
+To probe the validity of this result, we simulate the dynamics~\eqref{eq:dyn} with a fraction $f=0.1$ of particles being subjected to the driving force. We performed simulations with both (a) the deterministic periodic drive~\eqref{eq:theta} and (b) the active noise drive~\eqref{eq:theta_ac}. Interactions are set by the WCA potential $v({\bf r})=4v_0\big[(\sigma/|{\bf r}|)^{12}-(\sigma/|{\bf r}|)^6\big]\Theta(2^{1/6}\sigma-|{\bf r}|)$~\cite{WCA1971}. Our measurements in Fig.~\ref{fig:fig1} show that~\eqref{eq:approx} is indeed a good approximation at small $\rm Pe$ and small $\tau$, namely when the drive only weakly perturbs the liquid. Besides, up to ${\rm Pe}=36$ and $\tau/\tau_{\rm r}=50$, the relative deviation is at most of about $10\%$. At variance with previous approaches~\cite{Harada2005, Lander2012, Battle604}, which rely on prospecting the whole system, our results demonstrate that dissipation can actually be evaluated with only a small error by considering solely forces acting on tracer: the contribution of forces on other particles is negligible for a dilute fraction of driven tracers.
 
 
 To evaluate further the change in liquid structure induced by dissipation, we measure the deviation from equilibrium pair correlations $g-g_{\rm eq}$ due to the driving forces (left column in Fig.~\ref{fig:fig2}). In particular, inspired by the two-body contribution in the power balance~\eqref{eq:balance}, we focus on the observable ${\cal I} = \big[(\nabla v)^2-T\nabla^2v\big](g - g_{\rm eq})$.  At a given $\tau/\tau_{\rm r}$, scaling ${\cal I}$ by ${\rm Pe}^2$ reveals that all curves almost collapse into a master curve for our numerical range ${\rm Pe}\in[12,36]$, as reported in the middle column of Fig.~\ref{fig:fig2}. Given that the rate of work also exhibits such a scaling, this suggests the existence of an underlying relation between $\int{\cal I}({\bf r}){\rm d}{\bf r}$ and $\dot w$. In practice, introducing a factor $\rho_0/\gamma$ provides a satisfactory agreement between them, as shown in the right column of Fig.~\ref{fig:fig2}. In the appendix, we provide some heuristic arguments that explain the connection between ${\cal I}$ and $\dot{w}$. As a result, this empirical relation demonstrates that, for both the periodic drive~\eqref{eq:theta} and the active drive~\eqref{eq:theta_ac} in the dilute limit, the dissipation can actually be directly estimated by comparing driven and equilibrium pair correlations. To probe the effectiveness of our approach in the opposite limit where the entire system is subjected to a drivign force, we performed simulations in which all the particles were driven by the active noise drive~\eqref{eq:theta_ac}. In Fig XXX, we find that the pair correlation functions and dissipation even in a prototypical active matter system can be anticipated or constrained by keeping track of energy flows. 
@@ -317,23 +330,31 @@ Overall, the results of this Section illustrate how dissipation affects the tran
 
 \section{Interactions in biased ensembles}\label{sec:bias}
 
-\tn{We consider a system of interacting Brownian particles without any driving force} 
+\tn{We begin by considering a system of interacting Brownian particles without any driving force} 
 \begin{equation}\label{eq:dyn_eq}
 	\gamma\dot{\bf r}_i = - \nabla_i \sum_j v({\bf r}_i-{\bf r}_j) + {\boldsymbol\xi}_i ,
 \end{equation}
 where the statistics of the noise term ${\boldsymbol\xi}_i$ is the same as the one in~\eqref{eq:dyn}. 
-\tn{The dissipation of this system ${\cal E}$, given as \eqref{eq:balance}, has a zero mean because of the absence of the driving force. 
-In order to increase this mean dissipation, we then add a force term 
-${\bf F}_i$ to this equation, that includes both inter-particle many-body interactions and a driving force.
-As infinitely many ways to define the force exist, increasing the same amount of dissipation does not result in a unique way of forcing. In this section, we select the ``most natural'' forcing among them (more precise meaning is given below) and we study the relation between dissipation and structural properties of driven liquids in this forced system. }
+\tn{The dissipation of this system $\dot{w}$, as given by the energy balance relation \eqref{eq:balance}, has a zero mean because of the absence of the driving force. 
+In order to obtain a non-zero mean dissipation, in the previous sections, we added a particular driving force,  
+${\bf F}_{d,i}$ to this equation and explored the effects on the structural properties of a driven or active liquid.} %that includes both inter-particle many-body interactions and a driving force.
+
+\tn{In this section, using the framework of large deviation theories, we take an alternate approach to introducing an external forcing, one which is conditioned on requiring a certain average dissipation or energy flow rate. Using this framework, we then study the relation between dissipation, structural properties and organization in large class of driven systems.}
+
+%As infinitely many ways to define the force exist, increasing the same amount of dissipation does not result in a unique way of forcing. In this section, we select the ``most natural'' forcing among them (more precise meaning is given below) and we study the relation between dissipation and structural properties of driven liquids in this forced system. 
 
 
-\tn{To introduce the idea of unique forcing, let us consider a set of possible noise realizations in \eqref{eq:dyn_eq}. In each realization, dynamics of the particles are systematically generated according to \eqref{eq:dyn_eq}, whose time-averaged dissipation is deviated from zero in general: some realizations favor to increase the dissipation while some do not, but in average it becomes zero. We then collect the realizations that result in  a specific value of the averaged dissipation bigger than zero. 
-In this subset of noise realizations, we look for  ``natural'' ones whose occurrence probabilities are the highest. The dynamics generated by these noise realizations are atypical (largely deviated from the typical dynamics) because of the conditioning on higher dissipation, but ``natural'' in the sense that the probability is the highest in the subset for the same dissipation. In this subset, the noise term in~\eqref{eq:dyn_eq} no longer has zero average, so that we re-define it in terms of a renormalizing force ${\bf F}_i$ as ${\boldsymbol \xi}_i \to {\boldsymbol \xi}_i + {\bf F}_i$. 
-This renormalizing force, here we call ``auxiliary force'' according to~\cite{Jack2010,Chetrite2013}, is our target, which has been studied in many theories, e.g., a maximum entropy principle [ ], large deviation principle [ ] or thermodynamic formalism [ ], where applications ranged from glassy systems [ ], non-linear chaotic dynamics [ ], to active matter [ ].
+%the idea of unique forcing
+\tn{To introduce , our approach, consider the set of possible noise realizations in \eqref{eq:dyn_eq}. In particular, we focus on the subset of noise realizations that result in dynamics with a net non-zero value for the energy flow rate. The dynamics generated by these noise realizations are atypical (largely deviated from the typical dynamics) because of the conditioning on non-zero values of energy flow rates. In particular, in this subset, the noise term in~\eqref{eq:dyn_eq} no longer has zero average, so that we re-define it in terms of a renormalizing force ${\bf F}_i$ as ${\boldsymbol \xi}_i \to {\boldsymbol \xi}_i + {\bf F}_i$. 
+This renormalizing force, which we call an ``auxiliary force'' according to~\cite{Jack2010,Chetrite2013}, provides a realization of driving forces that will ensure a non-zero energy flow rate. Auxillary forces have been studied in many contexts, e.g., a maximum entropy principle [ ], large deviation principle [ ] or thermodynamic formalism [ ], where applications ranged from glassy systems [ ], non-linear chaotic dynamics [ ], to active matter [ ].}
 
 
-Formally, the auxiliary force and these conditional trajectories are studied by analyzing an exponentially biased ensemble, defined as the dynamical path probability multiplied by an exponential weighting factor $\exp\big[\kappa\int_0^t{\cal E}(s){\rm d}s\big]$, where ${\cal E}(s)$ is a quantity for the conditioning ({\it e.g.}, the dissipation) and $\kappa$ is a conjugate field. Following the thermodynamic formalism~\cite{Touchette2009}, trajectories following this biased path probability are statistically equivalent to those of conditional trajectories, in which the conditional value $\cal E$ and the conjugate field $\kappa$ are related via a Legendre transform. Before analyzing our main problem, relation between dissipation and structural properties of driven liquids, we first introduce how to extract the auxiliary force from the exponentially biased ensemble, by using a simple example in the next subsection.}
+%In each realization, dynamics of the particles are systematically generated according to \eqref{eq:dyn_eq}, whose time-averaged dissipation is deviated from zero in general: some realizations favor to increase the dissipation while some do not, but in average it becomes zero. We then collect the realizations that result in  a specific value of the averaged dissipation bigger than zero. 
+%In this subset of noise realizations, we look for  ``natural'' ones whose occurrence probabilities are the highest. The dynamics generated by these noise realizations are atypical (largely deviated from the typical dynamics) because of the conditioning on higher dissipation, but ``natural'' in the sense that the probability is the highest in the subset for the same dissipation. In this subset, the noise term in~\eqref{eq:dyn_eq} no longer has zero average, so that we re-define it in terms of a renormalizing force ${\bf F}_i$ as ${\boldsymbol \xi}_i \to {\boldsymbol \xi}_i + {\bf F}_i$. 
+%This renormalizing force, here we call ``auxiliary force'' according to~\cite{Jack2010,Chetrite2013}, is our target, which has been studied in many theories, e.g., a maximum entropy principle [ ], large deviation principle [ ] or thermodynamic formalism [ ], where applications ranged from glassy systems [ ], non-linear chaotic dynamics [ ], to active matter [ ].
+
+
+\tn{Formally, the auxiliary force and the conditional trajectories are studied by analyzing an exponentially biased ensemble, defined as the dynamical path probability multiplied by an exponential weighting factor $\exp\big[\kappa\int_0^t{\cal E}(s){\rm d}s\big]$, where ${\cal E}(s)$ is a quantity for the conditioning ({\it e.g.}, the dissipation) and $\kappa$ is a conjugate field. Following the thermodynamic formalism~\cite{Touchette2009}, trajectories following this biased path probability are statistically equivalent to those of conditional trajectories, in which the conditional value $\cal E$ and the conjugate field $\kappa$ are related via a Legendre transform. Before analyzing our main problem, relation between dissipation and structural properties of driven liquids, we first introduce how to extract the auxiliary force from the exponentially biased ensemble, by using a simple example in the next subsection.}
 
 
 % -------------------------------------------------------------------------------
@@ -459,20 +480,42 @@ Finally, we probe numerically the effect of large bias ($|\kappa|>1$) using dire
 % ===============================================================================
 
 \subsection{{Biased energy flows and flocking transitions in a Vicsek inspired model}}
-As a final illustration of the effectiveness and utility of our techniques, we apply our energy flow biasing technique to a Vicsek inspired model. This model was previously studied in Ref~\cite{Farrell2012} and is composed of self propelled particles that interact according to a pairwise aligning forcing, 
+As a final illustration of the effectiveness and utility of our techniques, we apply our energy flow biasing technique to a Vicsek inspired model. This model was previously studied in Ref~\cite{Farell2012} and is composed of self propelled particles that interact according to a pairwise aligning forcing, 
 \begin{equation}
     \label{eq:vicsek}
     \dot{{\bf r}}_i= v{\rm e}_{\theta_i};\dot{\theta_i}=\gamma \sum_{j=1}^{N} F(\theta_j-\theta_i,{\bf r}_i,{\bf r}_j)+\sqrt{2 \epsilon} \tilde \eta_i(t) 
 \end{equation}
 where ${\bf r}_i$ describes the position and $\theta_i$ describes the orientation of the $i^{\th}$ particle, $\gamma$ and $\epsilon$ describe the strength of alignment and fluctuations respectively, $N$ denotes the number of particles, $\tilde \eta(t)$ is a Gaussian white noise with unit variance and zero mean and the aligning force is given by $F(\theta,{\bf r})=\sin(\theta)/\pi R^2$ if $|{\bf r}|<R$. Following Ref~\cite{Farrell2012}, we set $R=1$. This model exhibits an disorder-order transition from an isotropic to a flocked state as $\gamma$, $\epsilon$ and the density of particles, $\rho=N/L^2$, where $L$ is the size of the simulation box, are tuned. In particular, a mean field continuum theory predicts that transition happens at a critical value of $\epsilon_c=1/2 \gamma \rho$, with the system existing in a flocked state for $\epsilon<\epsilon_c$ and the system existing in a homogeneous disordered state for $\epsilon>\epsilon_c$. 
 
-Applying the above described energy biasing techniques to fluctuations in the orientation fields, $\theta_i$, we can effectively generate steady states with modified inter particle aligning interactions. The specific form of the biasing fucntion, $\cal E$ is derived in the appendix following a procedure analogous to the one employed above. In particular, in the limit of a small biasing field, the steady states generated under biasing will resemble the unbiased non-equilibrium steady states generated with new aligning interactions, 
+Applying the above described energy biasing techniques to fluctuations in the orientation fields, $\theta_i$, we can effectively generate steady states with modified inter particle aligning interactions. The specific form of the biasing function, $\cal E$ is derived in the appendix following a procedure analogous to the one employed above. In particular, in the limit of a small biasing field, the steady states generated under biasing will resemble the unbiased non-equilibrium steady states generated with new aligning interactions, 
 \begin{equation}
 \label{eq:vicsekcentral1}
 \tilde F=F(1+\kappa)\,,
 \end{equation}
-similar to the result in ~\eqref{eq:centralresult0}. In this manner, by promoting biased energy flows, the effective aligning interactions can be tuned in a controlled manner. In Fig XXX (supplementary movies XXX), we provide qualitative results confirming our theoretical prediction. Starting with a model system with $\epsilon_c=1/2 \gamma \rho$, a flocked state or an isotropic state can be realized according to Eq.~\ref{eq:vicsekcentral1} simply by tuning $\kappa$ with all other interactions and parameters being held the same. Specifically, as predicted by our theory, a flocked state is obtained for $\kappa>0$ while an isotropic state is stabilized for $\kappa<0$. These results demonstrate that our approach can be potentially used to understand the interplay between energy flows and organization in systems beyond those considered in this manuscript. 
+similar to the result in ~\eqref{eq:centralresult0}. In this manner, by promoting biased energy flows, the effective aligning interactions can be tuned in a controlled manner. In Fig.~\ref{fig:vicsek} (supplementary movies XXX), we provide qualitative results confirming our theoretical prediction. Starting with a model system with $\epsilon_c=1/2 \gamma \rho$, a flocked state or an isotropic state can be realized according to Eq.~\ref{eq:vicsekcentral1} simply by tuning $\kappa$ with all other interactions and parameters being held the same. Specifically, as predicted by our theory, a flocked state is obtained for $\kappa>0$ while an isotropic state is stabilized for $\kappa<0$. These results demonstrate that our approach can be potentially used to understand the interplay between energy flows and organization in systems beyond those considered in this manuscript. 
 % ===============================================================================
+
+
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=.32\linewidth]{SnapshotsN128Sm02ktracer7__}
+	\includegraphics[width=.32\linewidth]{SnapshotsN128S0ktracer7__}
+	\includegraphics[width=.32\linewidth]{SnapshotsN128S02ktracer7__}
+	\includegraphics[width=.32\linewidth]{SnapshotsN128Sm01ktracer8__}
+	\includegraphics[width=.32\linewidth]{SnapshotsN128S0ktracer8__}	
+	\includegraphics[width=.32\linewidth]{SnapshotsN128S01ktracer8__}
+	\includegraphics[width=.32\linewidth]{SnapshotsN128Sm02ktracer9__}	
+	\includegraphics[width=.32\linewidth]{SnapshotsN128S0ktracer9__}
+	\includegraphics[width=.32\linewidth]{SnapshotsN128S02ktracer9__}		
+	\caption{\label{fig:vicsek}
+Snapshots of configurations in the Vicsek inspired model for different values of $\epsilon$ around $\epsilon_c$ and for the bias field $\kappa$. The corresponding movies are available from XXX. Tuning $\kappa$ systematically generates flocking states ($\kappa>0$) and disordered states ($\kappa<0$) irrespective of the values of $\epsilon$.}
+\end{figure*}
+
+
+
+
+
 
 \section{Conclusion}
 
