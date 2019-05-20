@@ -1,7 +1,7 @@
 \documentclass[superscriptaddress, twocolumn, prx, longbibliography, nofootinbib]{revtex4-1}
 %DIF LATEXDIFF DIFFERENCE FILE
-%DIF DEL ActiveDriven_v_rev_4.tex   Sun May 19 22:21:06 2019
-%DIF ADD v_rev_3.tex                Sun May 19 22:21:06 2019
+%DIF DEL v_rev_3.tex                Sun May 19 22:21:06 2019
+%DIF ADD ActiveDriven_v_rev_4.tex   Sun May 19 22:21:06 2019
 \usepackage{amsmath, amssymb, color, graphicx, stmaryrd, wasysym, esint}
 \definecolor{linkcolor}{rgb}{0,0,0.6} 
 \usepackage[pdftex,colorlinks=true,
@@ -63,7 +63,7 @@
 
 \begin{abstract}
 
-The dynamics and structure of nonequilibrium liquids, driven by non-conservative forces which can be either external or internal, generically hold the signature of the net dissipation of energy in the thermostat. Yet, disentangling precisely how dissipation changes collective effects remains challenging in many-body systems due to the complex interplay between driving and \DIFdelbegin \DIFdel{particle }\DIFdelend \DIFaddbegin \DIFadd{interparticle }\DIFaddend interactions. First, we combine explicit coarse-graining and stochastic calculus to obtain simple relations between diffusion, density correlations and dissipation in nonequilibrium liquids. Based on these results, we consider large-deviation biased ensembles where trajectories mimic the effect of an external drive. The choice of the biasing function is informed by the connection between dissipation and structure derived in the first part. Using analytical and computational techniques, we show that biased trajectories effectively renormalizes interactions in a controlled manner, thus providing intuition on how driving forces can lead to spatial organization\DIFdelbegin \DIFdel{and collective dynamics}\DIFdelend , with potential relevance for complex self-assembly. Altogether, our results show how tuning dissipation provides a route to alter the structure and dynamics of liquids and soft materials.
+The dynamics and structure of nonequilibrium liquids, driven by non-conservative forces which can be either external or internal, generically hold the signature of the net dissipation of energy in the thermostat. Yet, disentangling precisely how dissipation changes collective effects remains challenging in many-body systems due to the complex interplay between driving and \DIFdelbegin \DIFdel{interparticle }\DIFdelend \DIFaddbegin \DIFadd{particle }\DIFaddend interactions. First, we combine explicit coarse-graining and stochastic calculus to obtain simple relations between diffusion, density correlations and dissipation in nonequilibrium liquids. Based on these results, we consider large-deviation biased ensembles where trajectories mimic the effect of an external drive. The choice of the biasing function is informed by the connection between dissipation and structure derived in the first part. Using analytical and computational techniques, we show that biased trajectories effectively renormalizes interactions in a controlled manner, thus providing intuition on how driving forces can lead to spatial organization \DIFaddbegin \DIFadd{and collective dynamics}\DIFaddend , with potential relevance for complex self-assembly. Altogether, our results show how tuning dissipation provides a route to alter the structure and dynamics of liquids and soft materials.
 
 \end{abstract}
 
@@ -86,8 +86,9 @@ To investigate how dissipation controls emerging behavior, yet another approach 
 In this paper, we explore how dissipation affects the dynamics and structure of many-body diffusive systems. First, we consider in Sec.~\ref{sec:method} an assembly of Brownian particles where only a subset is driven by an external force. We mainly focus on instances where the fraction of driven particles is less than the fraction of undriven particles, so that driven and undriven particles are respectively referred to as {\it tracer} and {\it bath} particles. Using the diffusion coefficient of a tagged tracer particle and the density correlations between tracer and bath particles, we connect dissipation to liquid properties. At variance with~\cite{delJunco2018}, our prediction for diffusion follows from a systematic coarse-graining with explicit dependence in terms of microscopic details~\cite{Dean1996, Demery2011, Demery2014}. Importantly, we put forward a generic relation between density correlations and dissipation valid for an arbitrary driving force: this is our first main result. It opens the door to estimating dissipation directly from the liquid structure, at variance with previous approaches based either on perturbing the system~\cite{Harada2005, Mizuno2007, Visco2015, Turlier2016, Ahmed2018} or on analyzing trajectories and currents in phase space~\cite{Battle604, Gingrich2017, Roldan2018, Parrondo2018, Li2018}. We illustrate this with numerical simulations for which dissipation is quantified by the deviation from equilibrium tracer-bath correlations. Altogether, these results clarify how nonequilibrium forces affect the transport and structure of the liquid, thus showing how liquid properties can be modified at the cost of energy dissipation.
 
 
-Motivated by these results, and to provide concrete intuition for how particular configurations can be stabilized by nonequilibrium forces, we investigate in Sec.~\ref{sec:bias} the emerging structure of Brownian particles subject to a dynamical bias. The explicit form of the bias is inspired by the results of Sec.~\ref{sec:method} connecting dissipation to many-body interactions. Using analytical calculations and numerical simulations based on the cloning algorithmm~\cite{Giadina2006, tailleur2007probing, Hurtado2009, Nemoto2016, Ray2018, Klymko2018, Brewer2018}, we show that biased sampling trajectories can be used to renormalize any specific interparticle interaction in a multi-component liquid. The rare noise fluctuations sampled with dynamical bias effectively drive the system away from typical behavior~\cite{garrahan2007, Hedges2009, Jack2010, Pitard2011, Speck2012, Bodineau2012a, Chetrite2013, Limmer2014, Nemoto2017}. Such noise realizations can then serve as proxies of how to control the dynamics by applying an external force with complex protocols. Overall, our results lay the groundwork for precise control of the emerging structure \DIFdelbegin \DIFdel{and collective dynamics }\DIFdelend in many-body diffusive nonequilibrium systems. Indeed, \DIFaddbegin {\DIFaddend given the ability to control and modify any desired \DIFdelbegin \DIFdel{particle }\DIFdelend \DIFaddbegin \DIFadd{interparticle }\DIFaddend interaction in a multi-component system\DIFaddbegin }\DIFaddend , our results could potentially lead to design principles for addressable self-assembly in
-nonequilibrium conditions.
+Motivated by these results, and to provide concrete intuition for how particular configurations can be stabilized by nonequilibrium forces, we investigate in Sec.~\ref{sec:bias} the emerging structure of Brownian particles subject to a dynamical bias. The explicit form of the bias is inspired by the results of Sec.~\ref{sec:method} connecting dissipation to many-body interactions. Using analytical calculations and numerical simulations based on the cloning algorithmm~\cite{Giadina2006, tailleur2007probing, Hurtado2009, Nemoto2016, Ray2018, Klymko2018, Brewer2018}, we show that biased sampling trajectories can be used to renormalize any specific interparticle interaction in a multi-component liquid. The rare noise fluctuations sampled with dynamical bias effectively drive the system away from typical behavior~\cite{garrahan2007, Hedges2009, Jack2010, Pitard2011, Speck2012, Bodineau2012a, Chetrite2013, Limmer2014, Nemoto2017}. Such noise realizations can then serve as proxies of how to control the dynamics by applying an external force with complex protocols. Overall, our results lay the groundwork for precise control of the emerging structure \DIFaddbegin \DIFadd{and collective dynamics }\DIFaddend in many-body diffusive nonequilibrium systems. Indeed, \DIFdelbegin %DIFDELCMD < {%%%
+\DIFdelend given the ability to control and modify any desired \DIFdelbegin \DIFdel{interparticle }\DIFdelend \DIFaddbegin \DIFadd{particle }\DIFaddend interaction in a multi-component system\DIFdelbegin %DIFDELCMD < }%%%
+\DIFdelend , our results could potentially lead to design principles for addressable self-assembly in nonequilibrium conditions.
 
 
 % ===============================================================================
@@ -203,11 +204,11 @@ To characterize the transport properties of the liquid in the presence of drivin
 \begin{equation}
 	D = \underset{t\to\infty}{\lim} \frac{1}{2dt} \big\langle \big[\langle{\bf r}_i(t)\rangle-{\bf r}_i(t)\big]^2 \big\rangle .
 \end{equation}
-We aim to explore connections between $D$ and dissipation, which is defined from stochastic thermodynamics as the power of the forces exerted by all tracers on solvent: ${\cal J} = \sum_i\langle\dot{\bf r}_i\cdot(\gamma\dot{\bf r}_i-{\boldsymbol\xi}_i)\rangle$, where $\cdot$ denotes a Stratonovich product~\cite{Sekimoto1998, Seifert2012}. \DIFdelbegin \DIFdel{Dissipation is directly related to entropy production, as a measure of irreversibility, both when the drive is deterministic~\mbox{%DIFAUXCMD
+We aim to explore connections between $D$ and dissipation, which is defined from stochastic thermodynamics as the power of the forces exerted by all tracers on solvent: ${\cal J} = \sum_i\langle\dot{\bf r}_i\cdot(\gamma\dot{\bf r}_i-{\boldsymbol\xi}_i)\rangle$, where $\cdot$ denotes a Stratonovich product~\cite{Sekimoto1998, Seifert2012}. \DIFaddbegin \DIFadd{Dissipation is directly related to entropy production, as a measure of irreversibility, both when the drive is deterministic~\mbox{%DIFAUXCMD
 \cite{Sekimoto1998, Seifert2012} }%DIFAUXCMD
 and when it is a correlated noise~\mbox{%DIFAUXCMD
 \cite{Mandal2017, Seifert2018, Shankar2018, Bo2019}}%DIFAUXCMD
-. }\DIFdelend Substituting the dynamics~\eqref{eq:dyn}, the dissipation coincides with the power of driving forces: ${\cal J} = \sum_{i\in\Omega}\langle\dot{\bf r}_i\cdot{\bf F}_{{\rm d},i}\rangle$, and it can be further separated into free-motion and interaction contributions as ${\cal J} = f^2/\gamma - \dot w$, where the {\it rate of work} reads
+. }\DIFaddend Substituting the dynamics~\eqref{eq:dyn}, the dissipation coincides with the power of driving forces: ${\cal J} = \sum_{i\in\Omega}\langle\dot{\bf r}_i\cdot{\bf F}_{{\rm d},i}\rangle$, and it can be further separated into free-motion and interaction contributions as ${\cal J} = f^2/\gamma - \dot w$, where the {\it rate of work} reads
 \begin{equation}\label{eq:work}
 	\dot w = \frac{1}{\gamma} \sum_{i\in\Omega,j}\big\langle {\bf F}_{{\rm d},i}\cdot\nabla_iv({\bf r}_i-{\bf r}_j)\big\rangle.
 \end{equation}
@@ -259,7 +260,7 @@ Thus, the excess rate at which tracers move over their own size compared to equi
 
 \subsection{Dissipation sets density correlations}\label{sec:struc}
 
-We now explore how dissipation relates with static density correlations of the liquid. To this end, we treat undriven bath particles without any approximation in what follows, instead of relying on the Gaussian density field theory for $\delta\rho$ as \DIFdelbegin \DIFdel{in Sec.~\ref{sec:diff}}\DIFdelend \DIFaddbegin \DIFadd{we did above}\DIFaddend , and we consider an arbitrary set of driving forces ${\bf F}_{{\rm d},i}$. In equilibrium, the liquid structure can be derived from a hierarchy of equations for density correlations, whose explicit form reflects the steady-state condition on the many-body distribution function~\cite{Hansen2013}. In our settings, steady-state conditions should now provide modified equations for density correlations, which can potentially make apparent the connection with dissipation.
+We now explore how dissipation relates with static density correlations of the liquid. To this end, we treat undriven bath particles without any approximation in what follows, instead of relying on the Gaussian density field theory for $\delta\rho$ as \DIFdelbegin \DIFdel{we did above}\DIFdelend \DIFaddbegin \DIFadd{in Sec.~\ref{sec:diff}}\DIFaddend , and we consider an arbitrary set of driving forces ${\bf F}_{{\rm d},i}$. In equilibrium, the liquid structure can be derived from a hierarchy of equations for density correlations, whose explicit form reflects the steady-state condition on the many-body distribution function~\cite{Hansen2013}. In our settings, steady-state conditions should now provide modified equations for density correlations, which can potentially make apparent the connection with dissipation.
 
 
 This motivates us to consider the average rate at which the potential $U = \sum_{i\in\Omega,j} v({\bf r}_i-{\bf r}_j)$ changes, which can be written using It\^o calculus as
@@ -277,13 +278,16 @@ where $\circ$ denotes an It\^o product. Substituting the dynamics~\eqref{eq:dyn}
 where the $k$-sum runs over all particles. Then, using the steady-state condition $\langle\dot U \rangle=0$ and identifying the rate of work from its definition~\eqref{eq:work}, we deduce that $\dot w$ can be written in terms of density correlations as
 \begin{equation}\label{eq:balance}
 	\begin{aligned}
-		&\DIFaddbegin \DIFadd{\gamma}\DIFaddend \dot w = \DIFdelbegin \DIFdel{\frac{2\rho_0}{\gamma} }\DIFdelend \DIFaddbegin \DIFadd{2}\bar\DIFadd{\rho_0 }\DIFaddend \int g({\bf r}) \big[(\nabla v({\bf r}))^2 - T \nabla^2 v({\bf r})\big] \dd{\bf r} ,
+		&\DIFdelbegin \DIFdel{\gamma}\DIFdelend \dot w = \DIFdelbegin \DIFdel{2}%DIFDELCMD < \bar%%%
+\DIFdel{\rho_0 }\DIFdelend \DIFaddbegin \DIFadd{\frac{2\rho_0}{\gamma} }\DIFaddend \int g({\bf r}) \big[(\nabla v({\bf r}))^2 - T \nabla^2 v({\bf r})\big] \dd{\bf r} ,
 		\\
-		&\, + \DIFdelbegin \DIFdel{\frac{\rho_0^2}{\gamma} }\DIFdelend \DIFaddbegin \bar\DIFadd{\rho_0^2 }\DIFaddend \iint\big[ g_{3a}({\bf r}, {\bf r}') + g_{3b}({\bf r}, {\bf r}')\big]  \big[\nabla v({\bf r})\big] \cdot \big[\nabla v({\bf r}')\big] \dd{\bf r} \dd{\bf r}' ,
+		&\, + \DIFdelbegin %DIFDELCMD < \bar%%%
+\DIFdel{\rho_0^2 }\DIFdelend \DIFaddbegin \DIFadd{\frac{\rho_0^2}{\gamma} }\DIFaddend \iint\big[ g_{3a}({\bf r}, {\bf r}') + g_{3b}({\bf r}, {\bf r}')\big]  \big[\nabla v({\bf r})\big] \cdot \big[\nabla v({\bf r}')\big] \dd{\bf r} \dd{\bf r}' ,
 	\end{aligned}
 \end{equation}
-where \DIFaddbegin \DIFadd{$\bar\rho_0 = \rho_0(1-p)$ is defined in terms of the total density $\rho_0$ and the fraction of driven tracers $p$, and
-}\DIFaddend \begin{equation}
+where
+\DIFdelbegin \DIFdel{$\bar\rho_0 = \rho_0(1-p)$ is defined in terms of the total density $\rho_0$ and the fraction of driven tracers $p$, and
+}\DIFdelend \begin{equation}
 	\begin{aligned}
  		g({\bf r}) &= \frac{1}{N} \underset{i\in\Omega,j}{{\sum}'} \big\langle \delta({\bf r}-{\bf r}_i+{\bf r}_j)\big\rangle ,
 		\\
@@ -292,12 +296,11 @@ where \DIFaddbegin \DIFadd{$\bar\rho_0 = \rho_0(1-p)$ is defined in terms of the
  		g_{3b}({\bf r},{\bf r}') &= \frac{1}{N^2} \underset{i\in\Omega,j,k}{{\sum}'} \big\langle \delta({\bf r}-{\bf r}_i+{\bf r}_j) \delta({\bf r}'-{\bf r}_j+{\bf r}_k)\big\rangle ,
 	\end{aligned}
 \end{equation}
-and $\sum'$ denotes a sum without the overlap of indices: $i\neq j$, $k\neq i$ and $k\neq j$. The power balance~\eqref{eq:balance}, valid for an arbitrary driving, either deterministic or active, is our first main result.
-\DIFdelbegin \DIFdel{Importantly, it holds for generic interactions and for any number of driven particles, namely not only in the dilute limit, at variance with the results in Sec.~\ref{sec:diff}.
-}\DIFdelend 
+and $\sum'$ denotes a sum without the overlap of indices: $i\neq j$, $k\neq i$ and $k\neq j$. The power balance~\eqref{eq:balance}, valid for an arbitrary driving, either deterministic or active, is our first main result. \DIFaddbegin \DIFadd{Importantly, it holds for generic interactions and for any number of driven particles, namely not only in the dilute limit, at variance with the results in Sec.~\ref{sec:diff}.
+}\DIFaddend 
 
 
-In practice, it reflects how density correlations adapt to the presence of nonequilibrium forces. For a vanishing rate of work ($\dot w = 0$), one recovers the first order of the equilibrium Yvon-Born-Green \DIFdelbegin \DIFdel{(YBG) }\DIFdelend hierarchy, in its integral form, for two-component fluids~\cite{Hansen2013}. At finite rate of work ($\dot w\neq0$), the relation between the two-body correlation $g$ and the three-body terms $\{g_{3a},g_{3b}\}$ is now implicitly constrained by dissipation. A direct implication is that the rate of work can now be inferred simply by measuring static density correlations, provided that the pair-wise interaction potential is known, for a given driven liquid. Importantly, such an approach does not require any invasive methods based on comparing fluctuations and response~\cite{Harada2005, Mizuno2007, Visco2015, Turlier2016, Ahmed2018}, and it does not rely on a detailed analysis of particle trajectories~\cite{Roldan2018, Parrondo2018} or currents in phase space~\cite{Gingrich2017, Li2018}, whose experimental implementation can require elaborate techniques~\cite{Battle604, Mura2018}.
+In practice, it reflects how density correlations adapt to the presence of nonequilibrium forces. For a vanishing rate of work ($\dot w = 0$), one recovers the first order of the equilibrium Yvon-Born-Green \DIFaddbegin \DIFadd{(YBG) }\DIFaddend hierarchy, in its integral form, for two-component fluids~\cite{Hansen2013}. At finite rate of work ($\dot w\neq0$), the relation between the two-body correlation $g$ and the three-body terms $\{g_{3a},g_{3b}\}$ is now implicitly constrained by dissipation. A direct implication is that the rate of work can now be inferred simply by measuring static density correlations, provided that the pair-wise interaction potential is known, for a given driven liquid. Importantly, such an approach does not require any invasive methods based on comparing fluctuations and response~\cite{Harada2005, Mizuno2007, Visco2015, Turlier2016, Ahmed2018}, and it does not rely on a detailed analysis of particle trajectories~\cite{Roldan2018, Parrondo2018} or currents in phase space~\cite{Gingrich2017, Li2018}, whose experimental implementation can require elaborate techniques~\cite{Battle604, Mura2018}.
 
 
 \begin{figure}
@@ -348,77 +351,76 @@ In practice, it reflects how density correlations adapt to the presence of noneq
 
 However, the power balance~\eqref{eq:balance} is not straightforward to test, either numerically or experimentally, due to the three-body correlations. In equilibrium, where tracer and bath particles are indistinguishable, we get $g_{3a}=g_{3b}$. Assuming that this remains approximately valid in the driven case for a dilute fraction of tracers, the rate of work can simply be written in terms of the force exerted on a tracer ${\bf F}_i =- \sum_j\nabla_iv({\bf r}_i-{\bf r}_j)$ as
 \begin{equation}\label{eq:approx}
-	\DIFaddbegin \DIFadd{\gamma}\DIFaddend \dot w \simeq \DIFdelbegin \DIFdel{\frac{2}{\gamma}}\DIFdelend \DIFaddbegin \DIFadd{2}\DIFaddend \sum_{i\in\Omega} \big[ \big\langle{\bf F}_i^2\big\rangle + T \big\langle\nabla_i\cdot{\bf F}_i\big\rangle \big] .
+	\DIFdelbegin \DIFdel{\gamma}\DIFdelend \dot w \simeq \DIFdelbegin \DIFdel{2}\DIFdelend \DIFaddbegin \DIFadd{\frac{2}{\gamma}}\DIFaddend \sum_{i\in\Omega} \big[ \big\langle{\bf F}_i^2\big\rangle + T \big\langle\nabla_i\cdot{\bf F}_i\big\rangle \big] .
 \end{equation}
 To probe the validity of this result, we simulate the dynamics~\eqref{eq:dyn} where $10\%$ of particles are subject to the driving force, considering either the deterministic periodic drive~\eqref{eq:theta} or the active noise drive~\eqref{eq:theta_ac}. Interactions are set by the WCA potential $v({\bf r})=4v_0\big[(\sigma/|{\bf r}|)^{12}-(\sigma/|{\bf r}|)^6\big]\Theta(2^{1/6}\sigma-|{\bf r}|)$~\cite{WCA1971}. Our measurements in Fig.~\ref{fig:fig1} show that~\eqref{eq:approx} is indeed a good approximation at small $\rm Pe$ and small $\tau$, namely when the drive only weakly perturbs the liquid, for both deterministic and active drives. At variance with previous approaches~\cite{Harada2005, Lander2012, Battle604}, which rely on prospecting the whole system, our results demonstrate that dissipation can actually be evaluated with only a small error by considering solely forces acting on tracer: the contribution of forces on other particles is negligible for a dilute fraction of driven tracers.
 
 
-To evaluate further the change in liquid structure induced by dissipation, we measure the deviation from equilibrium pair correlations $g-g_{\rm eq}$ due to the driving forces (left column in Fig.~\ref{fig:fig2}). In particular, inspired by the two-body contribution in the power balance~\eqref{eq:balance}, we focus on the observable ${\cal I} = \big[(\nabla v)^2-T\nabla^2v\big](g - g_{\rm eq})$. At a given $\tau/\tau_{\rm r}$, scaling ${\cal I}$ by ${\rm Pe}^2$ reveals that all curves almost collapse into a master curve for our numerical range ${\rm Pe}\in[12,36]$, as reported in the middle column of Fig.~\ref{fig:fig2}. In practice, particles overlap more for a stronger drive, so that $g$ departs from zero at smaller interparticle distance. To correct for this, we introduce a shift of the curves ${\cal I}(|{\bf r}|)$ as $|{\bf r}|\to |{\bf r}|+a$, where $a(\rm Pe)$ is a fitting parameter. Given that the rate of work also scales like ${\rm Pe}^2$, it suggests the existence of an underlying relation between $\int{\cal I}({\bf r}){\rm d}{\bf r}$ and $\dot w$. In practice, introducing a factor $\rho_0/\gamma$ provides a satisfactory agreement between them, as shown in the right column of Fig.~\ref{fig:fig2}\DIFdelbegin \DIFdel{:
-}\begin{displaymath}\DIFdel{\label{eq:emp}
-	\dot w \simeq \frac{\rho_0}{\gamma} \int \big[ g(}{\DIFdel{\bf r}}\DIFdel{) - g_{\rm eq}(}{\DIFdel{\bf r}}\DIFdel{) \big]\big[(\nabla v(}{\DIFdel{\bf r}}\DIFdel{))^2-T\nabla^2v(}{\DIFdel{\bf r}}\DIFdel{)\big] }{\DIFdel{\rm d}}{\DIFdel{\bf r}} \DIFdel{. 
+To evaluate further the change in liquid structure induced by dissipation, we measure the deviation from equilibrium pair correlations $g-g_{\rm eq}$ due to the driving forces (left column in Fig.~\ref{fig:fig2}). In particular, inspired by the two-body contribution in the power balance~\eqref{eq:balance}, we focus on the observable ${\cal I} = \big[(\nabla v)^2-T\nabla^2v\big](g - g_{\rm eq})$. At a given $\tau/\tau_{\rm r}$, scaling ${\cal I}$ by ${\rm Pe}^2$ reveals that all curves almost collapse into a master curve for our numerical range ${\rm Pe}\in[12,36]$, as reported in the middle column of Fig.~\ref{fig:fig2}. In practice, particles overlap more for a stronger drive, so that $g$ departs from zero at smaller interparticle distance. To correct for this, we introduce a shift of the curves ${\cal I}(|{\bf r}|)$ as $|{\bf r}|\to |{\bf r}|+a$, where $a(\rm Pe)$ is a fitting parameter. Given that the rate of work also scales like ${\rm Pe}^2$, it suggests the existence of an underlying relation between $\int{\cal I}({\bf r}){\rm d}{\bf r}$ and $\dot w$. In practice, introducing a factor $\rho_0/\gamma$ provides a satisfactory agreement between them, as shown in the right column of Fig.~\ref{fig:fig2}\DIFdelbegin \DIFdel{. }\DIFdelend \DIFaddbegin \DIFadd{:
+}\begin{equation}\DIFadd{\label{eq:emp}
+	\dot w \simeq \frac{\rho_0}{\gamma} \int \big[ g(}{\DIFadd{\bf r}}\DIFadd{) - g_{\rm eq}(}{\DIFadd{\bf r}}\DIFadd{) \big]\big[(\nabla v(}{\DIFadd{\bf r}}\DIFadd{))^2-T\nabla^2v(}{\DIFadd{\bf r}}\DIFadd{)\big] }{\DIFadd{\rm d}}{\DIFadd{\bf r}} \DIFadd{. 
+}\end{equation}
+\DIFaddend This empirical relation demonstrates that, in the dilute limit, dissipation can actually be directly estimated by comparing driven and equilibrium pair correlations for both deterministic and active drives. \DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{This empirical relation, in combination with }\DIFdelend \DIFaddbegin \DIFadd{Comparing}\DIFaddend ~\eqref{eq:balance} \DIFdelbegin \DIFdel{, suggests the following connection between two and three body correlations
+in our non-equilibrium system
+}\DIFdelend \DIFaddbegin \DIFadd{and~}\eqref{eq:emp}\DIFadd{, we deduce the following integral relation between density correlations
+}\DIFaddend \begin{equation}\DIFdelbegin %DIFDELCMD < \label{eq:empiricalbalance1}
+%DIFDELCMD <     %%%
+\DIFdelend \DIFaddbegin \label{eq:emp_b}
+	\DIFaddend \begin{aligned}
+		&\DIFdelbegin \DIFdel{\rho^2 }\DIFdelend \DIFaddbegin \DIFadd{-}\DIFaddend \int \DIFdelbegin \DIFdel{\int\ d}\DIFdelend \DIFaddbegin \big[ \DIFadd{g(}\DIFaddend {\bf r}\DIFdelbegin \DIFdel{d}%DIFDELCMD < {\bf %%%
+\DIFdel{r}%DIFDELCMD < }%%%
+\DIFdel{^\prime }\DIFdelend \DIFaddbegin \DIFadd{) + }\DIFaddend g\DIFdelbegin \DIFdel{_3}\DIFdelend \DIFaddbegin \DIFadd{_{\rm eq}}\DIFaddend ({\bf r}\DIFdelbegin \DIFdel{,}%DIFDELCMD < {\bf %%%
+\DIFdel{r}%DIFDELCMD < }%%%
+\DIFdel{^\prime}\DIFdelend ) \DIFdelbegin %DIFDELCMD < \left[%%%
+\DIFdelend \DIFaddbegin \big] \big[\DIFadd{(}\DIFaddend \nabla \DIFdelbegin \DIFdel{u}\DIFdelend \DIFaddbegin \DIFadd{v}\DIFaddend ({\bf r})\DIFdelbegin \DIFdel{\cdot }\DIFdelend \DIFaddbegin \DIFadd{)^2 - T }\DIFaddend \nabla\DIFdelbegin \DIFdel{u}\DIFdelend \DIFaddbegin \DIFadd{^2 v}\DIFaddend ({\bf r}\DIFdelbegin \DIFdel{^\prime}\DIFdelend )\DIFdelbegin %DIFDELCMD < \right]%%%
+\DIFdelend \DIFaddbegin \big] \DIFadd{\dd{\bf r}
+		}\DIFaddend \\
+		& \DIFdelbegin %DIFDELCMD < \quad %%%
+\DIFdel{=-}\DIFdelend \DIFaddbegin \DIFadd{\simeq }\DIFaddend \rho_0 \DIFdelbegin \DIFdel{\int d}\DIFdelend \DIFaddbegin \iint\big[ \DIFadd{g_{3a}(}\DIFaddend {\bf r}\DIFdelbegin \DIFdel{\frac{1}{2}}%DIFDELCMD < \left[%%%
+\DIFdel{g(}\DIFdelend \DIFaddbegin \DIFadd{, }\DIFaddend {\bf r}\DIFaddbegin \DIFadd{') }\DIFaddend + g\DIFdelbegin \DIFdel{_{\rm eq}}\DIFdelend \DIFaddbegin \DIFadd{_{3b}}\DIFaddend ({\bf r}\DIFaddbegin \DIFadd{, }{\bf \DIFadd{r}}\DIFadd{'}\DIFaddend )\DIFdelbegin %DIFDELCMD < \right]\left[%%%
+\DIFdelend \DIFaddbegin \big]  \big[\DIFaddend \nabla \DIFdelbegin \DIFdel{u}\DIFdelend \DIFaddbegin \DIFadd{v}\DIFaddend ({\bf r})\DIFdelbegin \DIFdel{^2-T}\DIFdelend \DIFaddbegin \big] \DIFadd{\cdot }\big[\DIFaddend \nabla \DIFdelbegin \DIFdel{^2 u}\DIFdelend \DIFaddbegin \DIFadd{v}\DIFaddend ({\bf r}\DIFaddbegin \DIFadd{'}\DIFaddend )\DIFdelbegin %DIFDELCMD < \right]%%%
+\DIFdel{\,}\DIFdelend \DIFaddbegin \big] \DIFadd{\dd{\bf r} \dd{\bf r}' }\DIFaddend .
+	\end{aligned}
+\end{equation}
+\DIFdelbegin \DIFdel{We note the structure of the empirical connection in }%DIFDELCMD < \eqref{eq:empiricalbalance1} %%%
+\DIFdelend \DIFaddbegin \DIFadd{Interestingly, it }\DIFaddend is reminiscent of the connection between \DIFdelbegin \DIFdel{two and three body correlations at equilibrium as }\DIFdelend \DIFaddbegin \DIFadd{density correlations }\DIFaddend provided by the YBG hierarchy \DIFdelbegin \DIFdel{~\mbox{%DIFAUXCMD
+\cite{Hansen2013} }%DIFAUXCMD
+with the equilibrium pair correlation function replaced by correlation function averaged over the equilibrium and non-equilibrium steady states.
+Finally, we note that this connection can be further rewritten in a compact form that relates the deviations of two and three body correlations from their equilibrium values, 
+}\begin{displaymath}
+    \DIFdel{\label{eq:empiricalbalance2}
+    \begin{aligned}
+    }&\DIFdel{\rho^2 \int \int\ d}{\DIFdel{\bf r}} \DIFdel{d}{\DIFdel{\bf r}}\DIFdel{^\prime \left[g_3(}{\DIFdel{\bf r}}\DIFdel{,}{\DIFdel{\bf r}}\DIFdel{^\prime)-g_{3,\rm eq}(}{\DIFdel{\bf r}}\DIFdel{,}{\DIFdel{\bf r}}\DIFdel{^\prime)\right]\left[\nabla u(}{\DIFdel{\bf r}}\DIFdel{)\cdot \nabla u(}{\DIFdel{\bf r}}\DIFdel{^\prime)\right]}\\
+    &\DIFdel{\quad =-\rho_0 \int d}{\DIFdel{\bf r}}\DIFdel{\frac{1}{2}\left[g(}{\DIFdel{\bf r}}\DIFdel{-g_{\rm eq}(}{\DIFdel{\bf r}}\DIFdel{)\right]\left[\nabla u(}{\DIFdel{\bf r}}\DIFdel{)^2-T\nabla^2 u(}{\DIFdel{\bf r}}\DIFdel{)\right]\,.
+    \end{aligned}
 }\end{displaymath}
 %DIFAUXCMD
-\DIFdelend \DIFaddbegin \DIFadd{. }\DIFaddend This empirical relation demonstrates that, in the dilute limit, dissipation can actually be directly estimated by comparing driven and equilibrium pair correlations for both deterministic and active drives. 
-\DIFdelbegin \DIFdel{Comparing}\DIFdelend \DIFaddbegin 
-
-\DIFadd{This empirical relation, in combination with }\DIFaddend ~\eqref{eq:balance}\DIFdelbegin \DIFdel{and~}%DIFDELCMD < \eqref{eq:emp}%%%
-\DIFdel{, we deduce the following integral relation between density correlations }\DIFdelend \DIFaddbegin \DIFadd{, suggests the following connection between two and three body correlations in our non-equilibrium system
-}\DIFaddend \begin{equation}\DIFdelbegin %DIFDELCMD < \label{eq:emp_b}
-%DIFDELCMD < 	%%%
-\DIFdelend 
-    \DIFaddbegin \label{eq:empiricalbalance1}
-    \DIFaddend \begin{aligned}
-    &\DIFdelbegin \DIFdel{-}\DIFdelend \DIFaddbegin \DIFadd{\rho^2 }\DIFaddend \int \DIFdelbegin %DIFDELCMD < \big[ %%%
-\DIFdel{g(}\DIFdelend \DIFaddbegin \DIFadd{\int\ d}\DIFaddend {\bf r} \DIFdelbegin \DIFdel{) + }\DIFdelend \DIFaddbegin \DIFadd{d}{\bf \DIFadd{r}}\DIFadd{^\prime }\DIFaddend g\DIFdelbegin \DIFdel{_{\rm eq}}\DIFdelend \DIFaddbegin \DIFadd{_3}\DIFaddend ({\bf r}\DIFaddbegin \DIFadd{,}{\bf \DIFadd{r}}\DIFadd{^\prime}\DIFaddend )\DIFdelbegin %DIFDELCMD < \big] \big[%%%
-\DIFdel{(}\DIFdelend \DIFaddbegin \left[\DIFaddend \nabla \DIFdelbegin \DIFdel{v}\DIFdelend \DIFaddbegin \DIFadd{u}\DIFaddend ({\bf r})\DIFdelbegin \DIFdel{)^2 - T }\DIFdelend \DIFaddbegin \DIFadd{\cdot }\DIFaddend \nabla \DIFdelbegin \DIFdel{^2 v}\DIFdelend \DIFaddbegin \DIFadd{u}\DIFaddend ({\bf r}\DIFaddbegin \DIFadd{^\prime}\DIFaddend )\DIFdelbegin %DIFDELCMD < \big] %%%
-\DIFdel{\dd{\bf r}
-		}\DIFdelend \DIFaddbegin \right]\DIFaddend \\
-    &\DIFdelbegin \DIFdel{\simeq }\DIFdelend \DIFaddbegin \quad \DIFadd{=-}\DIFaddend \rho_0 \DIFdelbegin %DIFDELCMD < \iint\big[ %%%
-\DIFdel{g_{3a}(}\DIFdelend \DIFaddbegin \DIFadd{\int d}\DIFaddend {\bf r}\DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{\frac{1}{2}}\left[\DIFadd{g(}\DIFaddend {\bf r}\DIFdelbegin \DIFdel{') }\DIFdelend +g\DIFdelbegin \DIFdel{_{3b}}\DIFdelend \DIFaddbegin \DIFadd{_{\rm eq}}\DIFaddend ({\bf r}\DIFdelbegin \DIFdel{, }%DIFDELCMD < {\bf %%%
-\DIFdel{r}%DIFDELCMD < }%%%
-\DIFdel{'}\DIFdelend )\DIFdelbegin %DIFDELCMD < \big]  \big[%%%
-\DIFdelend \DIFaddbegin \right]\left[\DIFaddend \nabla \DIFdelbegin \DIFdel{v}\DIFdelend \DIFaddbegin \DIFadd{u}\DIFaddend ({\bf r})\DIFdelbegin %DIFDELCMD < \big] %%%
-\DIFdel{\cdot }%DIFDELCMD < \big[%%%
-\DIFdelend \DIFaddbegin \DIFadd{^2-T}\DIFaddend \nabla\DIFdelbegin \DIFdel{v}\DIFdelend \DIFaddbegin \DIFadd{^2 u}\DIFaddend ({\bf r}\DIFdelbegin \DIFdel{'}\DIFdelend )\DIFdelbegin %DIFDELCMD < \big] %%%
-\DIFdel{\dd{\bf r} \dd{\bf r}' }\DIFdelend \DIFaddbegin \right]\DIFadd{\,}\DIFaddend .
-    \end{aligned}
-\end{equation}
-\DIFdelbegin \DIFdel{Interestingly, it }\DIFdelend \DIFaddbegin \DIFadd{We note the structure of the empirical connection in }\eqref{eq:empiricalbalance1} \DIFaddend is reminiscent of the connection between \DIFdelbegin \DIFdel{density correlations }\DIFdelend \DIFaddbegin \DIFadd{two and three body correlations at equilibrium as }\DIFaddend provided by the YBG hierarchy\DIFdelbegin \DIFdel{at equilibrium~\mbox{%DIFAUXCMD
-\cite{Hansen2013} }%DIFAUXCMD
+\DIFdelend \DIFaddbegin \DIFadd{at equilibrium~\mbox{%DIFAUXCMD
+\cite{Hansen2013}}%DIFAUXCMD
 .
-}\DIFdelend \DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
-\cite{Hansen2013} }%DIFAUXCMD
-with the equilibrium pair correlation function replaced by correlation function averaged over the equilibrium and non-equilibrium steady states. Finally, we note that this connection can be further rewritten in a compact form that relates the deviations of two and three body correlations from their equilibrium values, 
-}\begin{equation}
-    \DIFadd{\label{eq:empiricalbalance2}
-    \begin{aligned}
-    }&\DIFadd{\rho^2 \int \int\ d}{\DIFadd{\bf r}} \DIFadd{d}{\DIFadd{\bf r}}\DIFadd{^\prime \left[g_3(}{\DIFadd{\bf r}}\DIFadd{,}{\DIFadd{\bf r}}\DIFadd{^\prime)-g_{3,\rm eq}(}{\DIFadd{\bf r}}\DIFadd{,}{\DIFadd{\bf r}}\DIFadd{^\prime)\right]\left[\nabla u(}{\DIFadd{\bf r}}\DIFadd{)\cdot \nabla u(}{\DIFadd{\bf r}}\DIFadd{^\prime)\right]}\\
-    &\DIFadd{\quad =-\rho_0 \int d}{\DIFadd{\bf r}}\DIFadd{\frac{1}{2}\left[g(}{\DIFadd{\bf r}}\DIFadd{-g_{\rm eq}(}{\DIFadd{\bf r}}\DIFadd{)\right]\left[\nabla u(}{\DIFadd{\bf r}}\DIFadd{)^2-T\nabla^2 u(}{\DIFadd{\bf r}}\DIFadd{)\right]\,.
-    \end{aligned}
-}\end{equation}
-\DIFaddend 
+}\DIFaddend 
+
 
 The power balance~\eqref{eq:balance} can actually be extended to the case where all particles in the liquid are driven as
 \begin{equation}\label{eq:balance_b}
 	\begin{aligned}
-		\DIFaddbegin \DIFadd{\gamma}\DIFaddend \dot w &= \DIFdelbegin \DIFdel{\frac{\rho_0}{\gamma} }\DIFdelend \DIFaddbegin \DIFadd{\rho_0 }\DIFaddend \int g({\bf r}) \big[(\nabla v({\bf r}))^2 - T \nabla^2 v({\bf r})\big] \dd{\bf r} ,
+		\DIFdelbegin \DIFdel{\gamma}\DIFdelend \dot w &= \DIFdelbegin \DIFdel{\rho_0 }\DIFdelend \DIFaddbegin \DIFadd{\frac{\rho_0}{\gamma} }\DIFaddend \int g({\bf r}) \big[(\nabla v({\bf r}))^2 - T \nabla^2 v({\bf r})\big] \dd{\bf r} ,
 		\\
-		&\quad + \DIFdelbegin \DIFdel{\frac{\rho_0^2}{\gamma} }\DIFdelend \DIFaddbegin \DIFadd{\rho_0^2 }\DIFaddend \iint g_3({\bf r}, {\bf r}') \big[\nabla v({\bf r})\big] \cdot \big[\nabla v({\bf r}')\big] \dd{\bf r} \dd{\bf r}' ,
+		&\quad + \DIFdelbegin \DIFdel{\rho_0^2 }\DIFdelend \DIFaddbegin \DIFadd{\frac{\rho_0^2}{\gamma} }\DIFaddend \iint g_3({\bf r}, {\bf r}') \big[\nabla v({\bf r})\big] \cdot \big[\nabla v({\bf r}')\big] \dd{\bf r} \dd{\bf r}' ,
 	\end{aligned}
 \end{equation}
 where $g$ and $g_3$ now refer respectively to the two-body and three-body density correlations among all particles. This leads to an exact relation between the rate of work and the forces applied to particles ${\bf F}_i$ as
-\begin{equation}\DIFdelbegin %DIFDELCMD < \label{eq:balance_c}
-%DIFDELCMD < 	%%%
-\DIFdelend 
-	\DIFaddbegin \DIFadd{\gamma}\DIFaddend \dot w = \DIFdelbegin \DIFdel{\frac{1}{\gamma}}\DIFdelend \sum_i \big[ \big\langle{\bf F}_i^2\big\rangle + T \big\langle\nabla_i\cdot{\bf F}_i\big\rangle \big] ,
+\begin{equation}\DIFdelbegin \DIFdel{\gamma}\DIFdelend \DIFaddbegin \label{eq:balance_c}
+	\DIFaddend \dot w = \DIFaddbegin \DIFadd{\frac{1}{\gamma}}\DIFaddend \sum_i \big[ \big\langle{\bf F}_i^2\big\rangle + T \big\langle\nabla_i\cdot{\bf F}_i\big\rangle \big] ,
 \end{equation}
-\DIFdelbegin \DIFdel{which differs from the relation }\DIFdelend \DIFaddbegin \DIFadd{formally analogue to the relation in}\DIFaddend ~\eqref{eq:approx} for driven tracers \DIFdelbegin \DIFdel{by }\DIFdelend \DIFaddbegin \DIFadd{up to }\DIFaddend an overall factor of $2$. \DIFdelbegin \DIFdel{A result analogue to~}%DIFDELCMD < \eqref{eq:balance_c} %%%
-\DIFdel{was found previously for deterministic drive~\mbox{%DIFAUXCMD
+\DIFdelbegin \DIFdel{formally analogue to the relationin}\DIFdelend \DIFaddbegin \DIFadd{which differs from the relation}\DIFaddend ~\eqref{eq:approx} for driven tracers \DIFdelbegin \DIFdel{up to }\DIFdelend \DIFaddbegin \DIFadd{by }\DIFaddend an overall factor of $2$. \DIFdelbegin \DIFdel{Conducting the }\DIFdelend \DIFaddbegin \DIFadd{A result analogue to~}\eqref{eq:balance_c} \DIFadd{was found previously for deterministic drive~\mbox{%DIFAUXCMD
 \cite{Maes2010, Maes2015}}%DIFAUXCMD
-. The main difference is that~}%DIFDELCMD < \eqref{eq:balance_c} %%%
-\DIFdel{only features interaction forces ${\bf F}_i$ in the rhs, thus allowing one to evaluate the rate of work without any prior knowledge on the driving force. Besides, it is valid for both deterministic and active drives. Moreover, conducting the }\DIFdelend \DIFaddbegin \DIFadd{Conducting the }\DIFaddend same analysis of density correlations as for driven tracers, ${\cal I}$ exhibits again a scaling with ${\rm Pe}^2$, as reported in Fig.~\ref{fig:fig2_ac}. \DIFdelbegin \DIFdel{We }\DIFdelend \DIFaddbegin \DIFadd{Besides, we }\DIFaddend show that $\dot w$ and $\int{\cal I}({\bf r}){\rm d}{\bf r}$ are in good agreement when now introducing the factor $\rho_0/(2\gamma)$. \DIFdelbegin \DIFdel{This is consistent with substituting~}%DIFDELCMD < \eqref{eq:emp_b} %%%
-\DIFdel{into~}%DIFDELCMD < \eqref{eq:balance_b}%%%
-\DIFdel{, where $g_{3,a}+g_{3,b}$ is now replaced by $2g_3$, as expected. Hence, it demonstrates }\DIFdelend \DIFaddbegin \DIFadd{We note that this empirical connection with the modified factor of $\rho_0/(2\gamma)$ is still consistent with the non-equilibrium connection between two and three body correlations proposed in }\eqref{eq:empiricalbalance1}\DIFadd{, }\eqref{eq:empiricalbalance2}\DIFadd{. These results demonstrate }\DIFaddend that dissipation is also accessible from the nonequilibrium deviation of pair \DIFdelbegin \DIFdel{correlations }\DIFdelend \DIFaddbegin \DIFadd{correlation even }\DIFaddend in fully driven \DIFaddbegin \DIFadd{(or active) }\DIFaddend liquids.
+. The main difference is that~}\eqref{eq:balance_c} \DIFadd{only features interaction forces ${\bf F}_i$ in the rhs, thus allowing one to evaluate the rate of work without any prior knowledge on the driving force. Besides, it is valid for both deterministic and active drives. Moreover, conducting the }\DIFaddend same analysis of density correlations as for driven tracers, ${\cal I}$ exhibits again a scaling with ${\rm Pe}^2$, as reported in Fig.~\ref{fig:fig2_ac}. \DIFdelbegin \DIFdel{Besides, we }\DIFdelend \DIFaddbegin \DIFadd{We }\DIFaddend show that $\dot w$ and $\int{\cal I}({\bf r}){\rm d}{\bf r}$ are in good agreement when now introducing the factor $\rho_0/(2\gamma)$. \DIFdelbegin \DIFdel{We note that this empirical connection with the modified factor of $\rho_0/(2\gamma)$ is still consistent with the non-equilibrium connection between two and three body correlations proposed in }%DIFDELCMD < \eqref{eq:empiricalbalance1}%%%
+\DIFdel{, }%DIFDELCMD < \eqref{eq:empiricalbalance2}%%%
+\DIFdel{. These results demonstrate }\DIFdelend \DIFaddbegin \DIFadd{This is consistent with substituting~}\eqref{eq:emp_b} \DIFadd{into~}\eqref{eq:balance_b}\DIFadd{, where $g_{3,a}+g_{3,b}$ is now replaced by $2g_3$, as expected. Hence, it demonstrates }\DIFaddend that dissipation is also accessible from the nonequilibrium deviation of pair \DIFdelbegin \DIFdel{correlation even }\DIFdelend \DIFaddbegin \DIFadd{correlations }\DIFaddend in fully driven \DIFdelbegin \DIFdel{(or active) }\DIFdelend liquids.
 
 
 Overall, the results of this Section illustrate how dissipation affects the transport and structural properties of driven liquids, measured in terms of diffusion coefficient and density fluctuations. These findings motivate the following question: can nonequilibrium forces be tuned to reliably stabilize target configurations? To explore this, we rely in what follows on the framework of large deviation theory. In practice, our strategy amounts to biasing trajectories in terms of dissipation, related to many-body interactions by~\eqref{eq:balance}, to mimic the effect of an external drive. Following this route, our analytical and numerical results provide some concrete intuition for how interactions in a multicomponent system can be controllably renormalized by nonequilibrium forces. Hence, we demonstrate the ability to nucleate structures different from those characteristic of the equilibrium Boltzmann distribution to help guiding self-assembly~\cite{Bisker2018} and collective motion~\cite{Vicsek1995} far from equilibrium. These results further illustrate the interplay between energy {dissipation} and organization in nonequilibrium many-body settings.
@@ -434,14 +436,12 @@ To investigate how target structures and dynamics can be promoted by means of a 
 \begin{equation}\label{eq:dyn_eq}
 	\gamma\dot{\bf r}_i = - \nabla_i \sum_j v({\bf r}_i-{\bf r}_j) + {\boldsymbol\xi}_i ,
 \end{equation}
-where the statistics of the noise term ${\boldsymbol\xi}_i$ is the same as the one in~\eqref{eq:dyn}. The rate of work $\dot w$ defined in~\eqref{eq:work} is zero because of the absence of \DIFdelbegin \DIFdel{driving}\DIFdelend \DIFaddbegin \DIFadd{the driving force}\DIFaddend . In Sec.~\ref{sec:method}, to obtain a non-zero rate of energy flow through the system, we consider an explicit driving force ${\bf F}_{{\rm d},i}$ and we explore its effects on the \DIFdelbegin \DIFdel{transport and }\DIFdelend structural properties of the liquid. In \DIFdelbegin \DIFdel{practice, different types of driving can lead to same dissipation. In }\DIFdelend this section, using the framework of large deviation theory, we take an alternative approach where the dynamics is now conditioned by enforcing a required energy flow\DIFdelbegin \DIFdel{without any explicit driving}\DIFdelend . Thus, exploring how the system adapts to this requirement provides a new insight\DIFaddbegin \DIFadd{, distinct from the one in Sec.~\ref{sec:method}, }\DIFaddend into the relation between dissipation\DIFaddbegin \DIFadd{, structural properties }\DIFaddend and organization in driven systems\DIFdelbegin \DIFdel{, which is distinct from yet complements the approach in Sec.
-~\ref{sec:method}.
-}\DIFdelend \DIFaddbegin \DIFadd{.
+where the statistics of the noise term ${\boldsymbol\xi}_i$ is the same as the one in~\eqref{eq:dyn}. The rate of work $\dot w$ defined in~\eqref{eq:work} is zero because of the absence of \DIFdelbegin \DIFdel{the drivingforce}\DIFdelend \DIFaddbegin \DIFadd{driving}\DIFaddend . In Sec.~\ref{sec:method}, to obtain a non-zero rate of energy flow through the system, we consider an explicit driving force ${\bf F}_{{\rm d},i}$ and we explore its effects on the \DIFaddbegin \DIFadd{transport and }\DIFaddend structural properties of the liquid. In \DIFaddbegin \DIFadd{practice, different types of driving can lead to same dissipation. In }\DIFaddend this section, using the framework of large deviation theory, we take an alternative approach where the dynamics is now conditioned by enforcing a required energy flow \DIFaddbegin \DIFadd{without any explicit driving}\DIFaddend . Thus, exploring how the system adapts to this requirement provides a new insight \DIFdelbegin \DIFdel{, distinct from the one in Sec.~\ref{sec:method}, }\DIFdelend into the relation between dissipation \DIFdelbegin \DIFdel{, structural properties }\DIFdelend and organization in driven systems\DIFdelbegin \DIFdel{.
+}\DIFdelend \DIFaddbegin \DIFadd{, which is distinct from yet complements the approach in Sec.~\ref{sec:method}.
 }\DIFaddend 
 
 
-To this end, we focus on the subset of noise realizations that are effectively equivalent to dynamics with non-zero rate of work. Such dynamics are {\it atypical} since they correspond to realizations largely deviated from the most probable ones, thus opening the door to stabilizing structure and to promoting collective effects which are not {\it typically} observed. In particular, for this subset, the noise term in~\eqref{eq:dyn_eq} no longer has zero average, so that one can re-define it as \DIFdelbegin \DIFdel{${\boldsymbol \xi}_i \to {\boldsymbol \xi}_i + {\bf F}_{{\rm aux},i}$ }\DIFdelend \DIFaddbegin \DIFadd{${\boldsymbol \xi}_i \to {\boldsymbol \xi}_i + {\bf F}_i$ }\DIFaddend in terms of an {\it auxiliary force} force \DIFdelbegin \DIFdel{${\bf F}_{{\rm aux},i}$}\DIFdelend \DIFaddbegin \DIFadd{${\bf F}_i$}\DIFaddend ~\cite{Jack2010, Chetrite2013}. Hence, \DIFdelbegin \DIFdel{the dynamics given by~}%DIFDELCMD < \eqref{eq:dyn_eq} %%%
-\DIFdel{with added force ${\bf F}_{{\rm aux},i}$ }\DIFdelend \DIFaddbegin \DIFadd{it }\DIFaddend provides an explicit realization \DIFdelbegin \DIFdel{which ensures }\DIFdelend \DIFaddbegin \DIFadd{of forces that will ensure }\DIFaddend a non-zero energy flow rate.
+To this end, we focus on the subset of noise realizations that are effectively equivalent to dynamics with non-zero rate of work. Such dynamics are {\it atypical} since they correspond to realizations largely deviated from the most probable ones, thus opening the door to stabilizing structure and to promoting collective effects which are not {\it typically} observed. In particular, for this subset, the noise term in~\eqref{eq:dyn_eq} no longer has zero average, so that one can re-define it as \DIFdelbegin \DIFdel{${\boldsymbol \xi}_i \to {\boldsymbol \xi}_i + {\bf F}_i$ }\DIFdelend \DIFaddbegin \DIFadd{${\boldsymbol \xi}_i \to {\boldsymbol \xi}_i + {\bf F}_{{\rm aux},i}$ }\DIFaddend in terms of an {\it auxiliary force} force \DIFdelbegin \DIFdel{${\bf F}_i$}\DIFdelend \DIFaddbegin \DIFadd{${\bf F}_{{\rm aux},i}$}\DIFaddend ~\cite{Jack2010, Chetrite2013}. Hence, \DIFdelbegin \DIFdel{it }\DIFdelend \DIFaddbegin \DIFadd{the dynamics given by~}\eqref{eq:dyn_eq} \DIFadd{with added force ${\bf F}_{{\rm aux},i}$ }\DIFaddend provides an explicit realization \DIFdelbegin \DIFdel{of forces that will ensure }\DIFdelend \DIFaddbegin \DIFadd{which ensures }\DIFaddend a non-zero energy flow rate.
 
 
 Formally, to study the dynamics conditioned by dissipation, we bias the probability of trajectories. This is done by introducing an exponential weighting factor $\exp\big[\kappa\int_0^t{\cal E}(s){\rm d}s\big]$ where ${\cal E}$ is the observable which conditions the dynamics, {\it e.g.} energy flow rate, and $\kappa$ is a conjugate field. In practice, the relative importance of biasing in the dynamics is controlled by $\kappa$, which in turn controls the average value of $\cal E$~\cite{Touchette2009}. Before deriving the central results of this section, namely relations between biased energy flow rates and organization, we first introduce a simple example in the which the connection between auxiliary forces and exponentially biased ensemble can be clearly seen.
@@ -450,7 +450,9 @@ Formally, to study the dynamics conditioned by dissipation, we bias the probabil
 % -------------------------------------------------------------------------------
 
 
-\subsection{\DIFaddbegin {\DIFaddend Dynamical bias and external forces\DIFaddbegin }\DIFaddend }\label{sec:biasexternal}
+\subsection{\DIFdelbegin %DIFDELCMD < {%%%
+\DIFdelend Dynamical bias and external forces\DIFdelbegin %DIFDELCMD < }%%%
+\DIFdelend }\label{sec:biasexternal}
 
 To introduce pedagogically our methods, we first show how biasing trajectories can lead to effectively introduce a driving force. Inspired by the role of dissipation in emerging liquid properties, as discussed in Sec.~\ref{sec:method}, we bias the equilibrium dynamics~\eqref{eq:dyn_eq} with the sum of the dissipation and the rate of work, scaled by $T$, that would be produced by applying a constant force ${\bf F}_{\rm d}$ to a subset $\Omega$ of particles:
 \begin{equation}\label{eq:eps}
@@ -487,14 +489,14 @@ where the eigenvalue $\lambda$, parametrized by $\kappa_{ij}$, is the scaled cum
 \begin{equation} \label{eq:auxiliary}
 	\tilde V = \frac{1}{2}\sum_{i,j} v({\bf r}_i-{\bf r}_j) - 2 T \ln{\cal G} .
 \end{equation}
-In practice, computing $\cal G$ is a highly non-trivial procedure for many-body systems. The explicit solutions \DIFdelbegin \DIFdel{considered so far concern either exclusion processes~\mbox{%DIFAUXCMD
+In practice, computing $\cal G$ is a highly non-trivial procedure for many-body systems. The explicit solutions \DIFdelbegin \DIFdel{obtained so far for diffusive }\DIFdelend \DIFaddbegin \DIFadd{considered so far concern either exclusion processes~\mbox{%DIFAUXCMD
 \cite{Popkov2010, Popkov2011, Limmer2018a} }%DIFAUXCMD
-or particle-based diffusive systems restricted to small noise regimes~\mbox{%DIFAUXCMD
+or }\DIFaddend particle-based \DIFdelbegin \DIFdel{dynamics are mostly restricted to }\DIFdelend \DIFaddbegin \DIFadd{diffusive systems restricted to small noise regimes~\mbox{%DIFAUXCMD
 \cite{Lecomte2019, Proesmans2019} }%DIFAUXCMD
-and }\DIFdelend \DIFaddbegin \DIFadd{obtained so far for diffusive particle-based dynamics are mostly restricted to }\DIFaddend non-interacting \DIFdelbegin \DIFdel{cases in some specific potentials~\mbox{%DIFAUXCMD
-\cite{Majumdar2002, Touchette2016, Touchette2018}}%DIFAUXCMD
-}\DIFdelend \DIFaddbegin \DIFadd{systems~\mbox{%DIFAUXCMD
+and }\DIFaddend non-interacting \DIFdelbegin \DIFdel{systems~\mbox{%DIFAUXCMD
 \cite{Chetrite2013, Touchette2016}}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{cases in some specific potentials~\mbox{%DIFAUXCMD
+\cite{Majumdar2002, Touchette2016, Touchette2018}}%DIFAUXCMD
 }\DIFaddend .
 
 
@@ -589,8 +591,8 @@ Finally, we probe numerically the effect of large bias ($|\kappa|>1$) using dire
 		}
 	\end{flushleft}
 	\vskip-.6cm
-	\DIFdelbeginFL \DIFdelFL{\raisebox{2.1cm}}%DIFDELCMD < {%%%
-\DIFdelendFL \DIFaddbeginFL \DIFaddFL{\raisebox{2.3cm}}{\DIFaddendFL \rotatebox{90}{\large $D_{\rm r}>D_{\rm r}^*$}}
+	\DIFdelbeginFL \DIFdelFL{\raisebox{2.3cm}}%DIFDELCMD < {%%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{\raisebox{2.1cm}}{\DIFaddendFL \rotatebox{90}{\large $D_{\rm r}>D_{\rm r}^*$}}
 	\includegraphics[width=.318\linewidth]{snap_k02D9.pdf}
 	\includegraphics[width=.318\linewidth]{snap_k0D9.pdf}
 	\raisebox{-.1cm}{\rule{.2mm}{6.2cm}}
@@ -599,15 +601,15 @@ Finally, we probe numerically the effect of large bias ($|\kappa|>1$) using dire
 	\hskip.51cm
 	\rule{5.81cm}{.2mm}
 	\vskip-.05cm
-	\DIFdelbeginFL \DIFdelFL{\raisebox{2.2cm}}%DIFDELCMD < {%%%
-\DIFdelendFL \DIFaddbeginFL \DIFaddFL{\raisebox{2.35cm}}{\DIFaddendFL \rotatebox{90}{\large $D_{\rm r}<D_{\rm r}^*$}}
+	\DIFdelbeginFL \DIFdelFL{\raisebox{2.35cm}}%DIFDELCMD < {%%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{\raisebox{2.2cm}}{\DIFaddendFL \rotatebox{90}{\large $D_{\rm r}<D_{\rm r}^*$}}
 	\includegraphics[width=.318\linewidth]{snap_k02D7.pdf}
-	\DIFdelbeginFL \DIFdelFL{\raisebox{-.5cm}}%DIFDELCMD < {%%%
-\DIFdelFL{\rule{.2mm}{6.3cm}}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{\raisebox{-0.7cm}}{\DIFaddFL{\rule{.2mm}{6.5cm}}\DIFaddendFL }
+	\DIFdelbeginFL \DIFdelFL{\raisebox{-0.7cm}}%DIFDELCMD < {%%%
+\DIFdelFL{\rule{.2mm}{6.5cm}}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{\raisebox{-.5cm}}{\DIFaddFL{\rule{.2mm}{6.3cm}}\DIFaddendFL }
 	\includegraphics[width=.318\linewidth]{snap_k0D7.pdf}
 	\includegraphics[width=.318\linewidth]{snap_km02D7.pdf}
 	\begin{flushleft}
-		\vskip\DIFdelbeginFL \DIFdelFL{-.6}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-.5}\DIFaddendFL cm
+		\vskip\DIFdelbeginFL \DIFdelFL{-.5}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{-.6}\DIFaddendFL cm
 		{\large
 			\hskip2.55cm
 			$\kappa=-0.2$
@@ -624,12 +626,10 @@ Finally, we probe numerically the effect of large bias ($|\kappa|>1$) using dire
 \end{figure*}
 
 
-\subsection{Bias-induced collective motion}
-\DIFdelbegin %DIFDELCMD < \label{sec:vicsek}
-%DIFDELCMD < 
-
+\subsection{Bias-induced collective motion}\DIFdelbegin %DIFDELCMD < \label{secsec:viscek}
 %DIFDELCMD < %%%
-\DIFdelend \DIFaddbegin \label{secsec:viscek}
+\DIFdelend \DIFaddbegin \label{sec:vicsek}
+
 \DIFaddend As a final illustration of how collective effects can be controlled by dynamical bias, we consider a model of self-propelled particles where interactions are now only mediated via the angular dynamics~\cite{Farrell2012}:
 \begin{equation}\label{eq:vicsek}
 	\dot{\bf r}_i= V_0 {\bf u}(\theta_i),
@@ -698,7 +698,8 @@ In Secs.~\ref{sec:diff} and~\ref{sec:struc}, numerical simulations of the dynami
 
 In Sec.~\ref{sec:bias}, a custom code of molecular dynamics, based on finite time difference, is used to perform the simulations in a two-dimensional box $10\sigma\times 10\sigma$ with periodic boundary conditions. The pair potential of $16$ particle pairs is biased in a system of $40$ particles in total. To sample the biased ensemble, we use the cloning algorithm described in Appendix A of~\cite{Nemoto2016}. The time interval for cloning is $\Delta t = 10 \delta t$ and the number of clones is $1600$. The time step is $\delta t = 10^{-4}$, the initial relaxation time is $10^4\Delta t$, and the total simulation time is $10^6 \Delta t$. Parameter values: $T=1$, $\gamma=1$, $v_0=4$ (Fig.~\ref{fig:outofperturbation}), $\sigma=1$.
 
-In Sec.~\DIFdelbegin \DIFdel{\ref{sec:vicsek}}\DIFdelend \DIFaddbegin \DIFadd{\ref{secsec:viscek}}\DIFaddend , a custom \DIFdelbegin \DIFdel{code of molecular dynamics }\DIFdelend \DIFaddbegin \DIFadd{molecular dynamics code }\DIFaddend based on finite time difference is used to perform the simulations. $N=128$ particles are simulated in a two dimensional box of size $4\sigma\times 4\sigma$ with periodic boundary conditions. To sample the biased ensemble, we use the cloning algorithm described in Appendix A of~\cite{Nemoto2016}. The time interval for cloning is $\Delta t = 10 \delta t$ and the number of clones is $200$. The time step is $\delta t = 10^{-3}$, and the total simulation time is $500 \Delta t$. 
+In Sec.~\DIFdelbegin \DIFdel{\ref{secsec:viscek}}\DIFdelend \DIFaddbegin \DIFadd{\ref{sec:vicsek}}\DIFaddend , a custom \DIFdelbegin \DIFdel{molecular dynamics code }\DIFdelend \DIFaddbegin \DIFadd{code of molecular dynamics }\DIFaddend based on finite time difference is used to perform the simulations. $N=128$ particles are simulated in a two dimensional box of size $4\sigma\times 4\sigma$ with periodic boundary conditions. To sample the biased ensemble, we use the cloning algorithm described in Appendix A of~\cite{Nemoto2016}. The time interval for cloning is $\Delta t = 10 \delta t$ and the number of clones is $200$. The time step is $\delta t = 10^{-3}$, and the total simulation time is $500 \Delta t$. 
+
 
 % -------------------------------------------------------------------------------
 
