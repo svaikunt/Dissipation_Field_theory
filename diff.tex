@@ -275,23 +275,7 @@ where $\circ$ denotes an It\^o product. Substituting the dynamics~\eqref{eq:dyn}
     \end{aligned}
 \end{equation}
 where the $k$-sum runs over all particles. Then, using the steady-state condition $\langle\dot U \rangle=0$ and identifying the rate of work from its definition~\eqref{eq:work}, we deduce that $\dot w$ can be written in terms of density correlations as
-\begin{equation}\label{eq:balance}
-	\begin{aligned}
-		&\DIFaddbegin \DIFadd{\gamma}\DIFaddend \dot w = \DIFdelbegin \DIFdel{\frac{2\rho_0}{\gamma} }\DIFdelend \DIFaddbegin \DIFadd{2}\bar\DIFadd{\rho_0 }\DIFaddend \int g({\bf r}) \big[(\nabla v({\bf r}))^2 - T \nabla^2 v({\bf r})\big] \dd{\bf r} ,
-		\\
-		&\, + \DIFdelbegin \DIFdel{\frac{\rho_0^2}{\gamma} }\DIFdelend \DIFaddbegin \bar\DIFadd{\rho_0^2 }\DIFaddend \iint\big[ g_{3a}({\bf r}, {\bf r}') + g_{3b}({\bf r}, {\bf r}')\big]  \big[\nabla v({\bf r})\big] \cdot \big[\nabla v({\bf r}')\big] \dd{\bf r} \dd{\bf r}' ,
-	\end{aligned}
-\end{equation}
-where \DIFaddbegin \DIFadd{$\bar\rho_0 = \rho_0(1-p)$ is defined in terms of the total density $\rho_0$ and the fraction of driven tracers $p$, and
-}\DIFaddend \begin{equation}
-	\begin{aligned}
- 		g({\bf r}) &= \frac{1}{N} \underset{i\in\Omega,j}{{\sum}'} \big\langle \delta({\bf r}-{\bf r}_i+{\bf r}_j)\big\rangle ,
-		\\
- 		g_{3a}({\bf r},{\bf r}') &= \frac{1}{N^2} \underset{i\in\Omega,j,k}{{\sum}'} \big\langle \delta({\bf r}-{\bf r}_i+{\bf r}_j) \delta({\bf r}'-{\bf r}_i+{\bf r}_k)\big\rangle ,
-		\\
- 		g_{3b}({\bf r},{\bf r}') &= \frac{1}{N^2} \underset{i\in\Omega,j,k}{{\sum}'} \big\langle \delta({\bf r}-{\bf r}_i+{\bf r}_j) \delta({\bf r}'-{\bf r}_j+{\bf r}_k)\big\rangle ,
-	\end{aligned}
-\end{equation}
+
 and $\sum'$ denotes a sum without the overlap of indices: $i\neq j$, $k\neq i$ and $k\neq j$. The power balance~\eqref{eq:balance}, valid for an arbitrary driving, either deterministic or active, is our first main result.
 \DIFdelbegin \DIFdel{Importantly, it holds for generic interactions and for any number of driven particles, namely not only in the dilute limit, at variance with the results in Sec.~\ref{sec:diff}.
 }\DIFdelend 
@@ -389,14 +373,7 @@ To evaluate further the change in liquid structure induced by dissipation, we me
 }\DIFdelend \DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
 \cite{Hansen2013} }%DIFAUXCMD
 with the equilibrium pair correlation function replaced by correlation function averaged over the equilibrium and non-equilibrium steady states. Finally, we note that this connection can be further rewritten in a compact form that relates the deviations of two and three body correlations from their equilibrium values, 
-}\begin{equation}
-    \DIFadd{\label{eq:empiricalbalance2}
-    \begin{aligned}
-    }&\DIFadd{\rho^2 \int \int\ d}{\DIFadd{\bf r}} \DIFadd{d}{\DIFadd{\bf r}}\DIFadd{^\prime \left[g_3(}{\DIFadd{\bf r}}\DIFadd{,}{\DIFadd{\bf r}}\DIFadd{^\prime)-g_{3,\rm eq}(}{\DIFadd{\bf r}}\DIFadd{,}{\DIFadd{\bf r}}\DIFadd{^\prime)\right]\left[\nabla u(}{\DIFadd{\bf r}}\DIFadd{)\cdot \nabla u(}{\DIFadd{\bf r}}\DIFadd{^\prime)\right]}\\
-    &\DIFadd{\quad =-\rho_0 \int d}{\DIFadd{\bf r}}\DIFadd{\frac{1}{2}\left[g(}{\DIFadd{\bf r}}\DIFadd{-g_{\rm eq}(}{\DIFadd{\bf r}}\DIFadd{)\right]\left[\nabla u(}{\DIFadd{\bf r}}\DIFadd{)^2-T\nabla^2 u(}{\DIFadd{\bf r}}\DIFadd{)\right]\,.
-    \end{aligned}
-}\end{equation}
-\DIFaddend 
+
 
 The power balance~\eqref{eq:balance} can actually be extended to the case where all particles in the liquid are driven as
 \begin{equation}\label{eq:balance_b}
